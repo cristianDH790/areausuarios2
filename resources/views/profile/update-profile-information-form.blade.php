@@ -58,6 +58,14 @@
                 wire:model="state.code" disabled required autocomplete="code" />
             <x-input-error for="code" class="mt-2" />
         </div>
+        <!-- Status -->
+        <div class="col-span-6 sm:col-span-4 space-y-2">
+            <x-label for="status" value="{{ __('Status : Not Editable') }}" />
+            <div class="flex items-center ">
+                <div class="h-4 w-4 rounded-full mr-2 bg-green-500"></div>
+                <p class="text-green-500">Activo</p>
+            </div>
+        </div>
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">

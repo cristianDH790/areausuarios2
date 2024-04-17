@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\dashboardAdmin\DashboardAdminController;
+use App\Http\Controllers\DashboardAdmin\UsersController;
 use App\Http\Controllers\dashboardUser\DashboardUserController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Route;
@@ -42,4 +43,5 @@ Route::middleware([
     'verified',
 ])->group(function () {
     route::get('/home', [HomeController::class, 'index'])->name('home.index');
+    route::get('/users', [UsersController::class, 'index'])->name('user.index');
 });
