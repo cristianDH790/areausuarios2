@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'document' => '73042634',
             'phone' => '987654321',
             'code' => 'AD-73042634',
+            'status' => 'active',
             'password' => bcrypt('123456789'),
         ])->assignRole('admin');
         User::create([
