@@ -4,392 +4,314 @@
             <p class="card-header-title">
                 <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
                 Administrative Users
+
             </p>
-            <a href="#" class="card-header-icon">
-                <span class="icon"><i class="mdi mdi-reload"></i></span>
-            </a>
-        </header>
-        <div class="card-content">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </th>
-                        <th class="image-cell"></th>
-                        <th>Name</th>
-                        <th>Last Name</th>
-                        <th>Document</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Status</th>
-                        <th>Accion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Rebecca Bauch</td>
-                        <td data-label="Company">Daugherty-Daniel</td>
-                        <td data-label="City">South Cory</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="79">79</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Oct 25, 2021">Oct 25, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/felicita-yundt.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Felicita Yundt</td>
-                        <td data-label="Company">Johns-Weissnat</td>
-                        <td data-label="City">East Ariel</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="67">67</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Jan 8, 2021">Jan 8, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/mr-larry-satterfield-v.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Mr. Larry Satterfield V</td>
-                        <td data-label="Company">Hyatt Ltd</td>
-                        <td data-label="City">Windlerburgh</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="16">16</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Dec 18, 2021">Dec 18, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/mr-broderick-kub.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Mr. Broderick Kub</td>
-                        <td data-label="Company">Kshlerin, Bauch and Ernser</td>
-                        <td data-label="City">New Kirstenport</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="71">71</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Sep 13, 2021">Sep 13, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/barry-weber.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Barry Weber</td>
-                        <td data-label="Company">Schulist, Mosciski and Heidenreich</td>
-                        <td data-label="City">East Violettestad</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="80">80</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Jul 24, 2021">Jul 24, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/bert-kautzer-md.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Bert Kautzer MD</td>
-                        <td data-label="Company">Gerhold and Sons</td>
-                        <td data-label="City">Mayeport</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="62">62</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Mar 30, 2021">Mar 30, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/lonzo-steuber.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Lonzo Steuber</td>
-                        <td data-label="Company">Skiles Ltd</td>
-                        <td data-label="City">Marilouville</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="17">17</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Feb 12, 2021">Feb 12, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/jonathon-hahn.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Jonathon Hahn</td>
-                        <td data-label="Company">Flatley Ltd</td>
-                        <td data-label="City">Billiemouth</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="74">74</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Dec 30, 2021">Dec 30, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/ryley-wuckert.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Ryley Wuckert</td>
-                        <td data-label="Company">Heller-Little</td>
-                        <td data-label="City">Emeraldtown</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="54">54</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Jun 28, 2021">Jun 28, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="checkbox-cell">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="check"></span>
-                            </label>
-                        </td>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src="https://avatars.dicebear.com/v2/initials/sienna-hayes.svg"
-                                    class="rounded-full">
-                            </div>
-                        </td>
-                        <td data-label="Name">Sienna Hayes</td>
-                        <td data-label="Company">Conn, Jerde and Douglas</td>
-                        <td data-label="City">Jonathanfort</td>
-                        <td data-label="Progress" class="progress-cell">
-                            <progress max="100" value="55">55</progress>
-                        </td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Mar 7, 2021">Mar 7, 2021</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal"
-                                    type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="table-pagination">
-                <div class="flex items-center justify-between">
-                    <div class="buttons">
-                        <button type="button" class="button active">1</button>
-                        <button type="button" class="button">2</button>
-                        <button type="button" class="button">3</button>
-                    </div>
-                    <small>Page 1 of 3</small>
+            <div class="navbar-item ">
+                <div class="control flex items-center">
+                    <x-input wire:model.live.debounce.500ms="search" type="text" class="border-gray-50"
+                        placeholder="Search users" />
                 </div>
             </div>
+            <div class="navbar-item">
+                <div class="buttons">
+                    <x-button color="green" secondary="800" primary="500" class="px-2.5 py-2 --jb-modal"
+                        data-target="sample-modal-create" title="create"><i class="mdi mdi-plus-circle"></i>
+                    </x-button>
+                </div>
+            </div>
+
+
+        </header>
+
+        <div class="card has-table">
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="image-cell"></th>
+                            <th>Full Name</th>
+                            <th>Document</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if ($users->isEmpty())
+                            <div class="card empty">
+                                <div class="card-content">
+                                    <div>
+                                        <span class="icon large"><i class="mdi mdi-emoticon-sad mdi-48px"></i></span>
+                                    </div>
+                                    <p>Nothing's here…</p>
+                                </div>
+                            </div>
+                        @else
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>
+                                        {{ $loop->index + 1 }}
+                                    </td>
+                                    <td class="image-cell">
+                                        <div class="image">
+                                            <img src="{{ $user->profile_photo_url }}" alt="User Image"
+                                                class="rounded-full">
+                                        </div>
+                                    </td>
+                                    <td data-label="Name">{{ $user->name }} {{ $user->last_name }}</td>
+                                    <td data-label="Document">{{ $user->document }}</td>
+                                    <td data-label="Email">{{ $user->email }}</td>
+                                    <td data-label="Estatus">
+                                        <div class="flex items-center ">
+                                            <div
+                                                class="h-4 w-4 rounded-full mr-2 bg-{{ $user->status == 'active' ? 'green' : 'red' }}-500">
+                                            </div>
+                                            <p class="text-{{ $user->status == 'active' ? 'green' : 'red' }}-500">
+
+                                                {{ $user->status }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="actions-cell">
+                                        <div class="buttons right nowrap space-x-1">
+                                            <x-button class=" --jb-modal px-1 py-1"
+                                                data-target="sample-modal-view-{{ $user->id }}" color="blue"
+                                                secondary="800" primary="600" title="view">
+                                                <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                            </x-button>
+                                            @if ($user->status == 'active')
+                                                <x-button class=" --jb-modal px-1 py-1"
+                                                    data-target="sample-modal-status-{{ $user->id }}"
+                                                    color="yellow" secondary="800" primary="500" title="inactive">
+                                                    <span class="icon"><i class="mdi mdi-cancel"></i></span>
+                                                </x-button>
+                                            @else
+                                                <x-button class=" --jb-modal px-1 py-1"
+                                                    data-target="sample-modal-status-{{ $user->id }}"
+                                                    color="yellow" secondary="800" primary="500" title="active">
+                                                    <span class="icon"><i class="mdi mdi-check-circle"></i></span>
+                                                </x-button>
+                                            @endif
+
+                                            <x-button class=" --jb-modal px-1 py-1"
+                                                data-target="sample-modal-delete-{{ $user->id }}" color="red"
+                                                secondary="800" primary="600" title="delete">
+                                                <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                            </x-button>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <x-modal-table val="-status-{{ $user->id }}">
+                                    <x-slot name="title" class="space-x-2">
+                                        <div
+                                            class="h-4 w-4 rounded-full mr-2 bg-{{ $user->status == 'active' ? 'green' : 'red' }}-500">
+                                        </div>
+                                        <p class="text-{{ $user->status == 'active' ? 'green' : 'red' }}-500">
+
+                                            {{ $user->status }}</p>
+                                    </x-slot>
+                                    @if ($user->status == 'active')
+                                        Do you want to change from <span class="text-green-500">active </span> to <span
+                                            class="text-red-500">inactive</span>?
+                                    @else
+                                        Do you want to change from <span class="text-red-500">inactive</span> to <span
+                                            class="text-green-500">active </span>?
+                                    @endif
+
+                                    <x-slot name="buttons">
+                                        <div class="space-x-2">
+                                            <x-button color="gray" secondary="800" primary="600"
+                                                class="px-4 py-2 --jb-modal-close">Cancel</x-button>
+                                            <x-button color="blue" secondary="800" primary="500" class="px-4 py-2"
+                                                wire:click="update_status({{ $user->id }}, '{{ $user->status }}')">Save</x-button>
+
+                                        </div>
+                                    </x-slot>
+                                </x-modal-table>
+                                <x-modal-table val="-delete-{{ $user->id }}">
+                                    <x-slot name="title">
+                                        Delete User: {{ $user->name }} {{ $user->last_name }}
+                                    </x-slot>
+                                    Are you sure to delete this user?
+                                    <x-slot name="buttons">
+                                        <div class="space-x-2">
+                                            <x-button color="gray" secondary="800" primary="600"
+                                                class="px-4 py-2 --jb-modal-close">Cancel</x-button>
+                                            <x-button color="red" wire:click="delete({{ $user->id }})"
+                                                secondary="800" primary="500" class="px-4 py-2">Delete</x-button>
+
+                                        </div>
+                                    </x-slot>
+                                </x-modal-table>
+                                <x-modal-table val="-create">
+                                    <x-slot name="title">
+                                        Create User
+                                    </x-slot>
+                                    <div class="space-y-4">
+                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                            <div class="w-full">
+                                                <x-label>Name:</x-label>
+                                                <x-input type="text" class="border-gray-50 w-full" required
+                                                    placeholder="Name" wire:model="name" />
+                                                @error('name')
+                                                    <span class="text-red-600">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="w-full">
+                                                <x-label>Last Name:</x-label>
+                                                <x-input type="text" class="border-gray-50 w-full" required
+                                                    placeholder="Last Name" wire:model="last_name" />
+                                                @error('last_name')
+                                                    <span class="text-red-600">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                            <div class="w-full">
+                                                <x-label>Document:</x-label>
+                                                <x-input type="text" class="border-gray-50 w-full" required
+                                                    placeholder="Document" wire:model="document" />
+                                                @error('document')
+                                                    <span class="text-red-600">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="w-full">
+                                                <x-label>Phone:</x-label>
+                                                <x-input type="number" class="border-gray-50 w-full"
+                                                    placeholder="Phone" wire:model="phone" />
+                                                @error('phone')
+                                                    <span class="text-red-600">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                            <div class="w-full">
+                                                <x-label>Email:</x-label>
+                                                <x-input type="email" class="border-gray-50 w-full" required
+                                                    placeholder="Email" wire:model="email" />
+                                                @error('email')
+                                                    <span class="text-red-600">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="w-full">
+                                                <x-label>Password:</x-label>
+                                                <x-input type="password"
+                                                    class="{{ $errors->has('name') ? 'border-red-500' : 'border-gray-50' }} w-full"
+                                                    required placeholder="password" wire:model="password" />
+                                                @error('password')
+                                                    <span class="text-red-600">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <x-slot name="buttons">
+                                        <div class="space-x-2">
+                                            <x-button color="gray" secondary="800" primary="600"
+                                                class="px-4 py-2 --jb-modal-close">Cancel</x-button>
+                                            <x-button color="blue" wire:loading.attr="disabled" wire:click="save"
+                                                secondary="800" primary="500" class="px-4 py-2">Save</x-button>
+                                        </div>
+                                    </x-slot>
+                                </x-modal-table>
+                                <x-modal-table val="-view-{{ $user->id }}">
+                                    <x-slot name="title">
+                                        <div class="space-x-2 flex items-center justify-between  w-full">
+                                            <div class="flex items-center">
+                                                <div
+                                                    class="h-4 w-4 rounded-full mr-2 bg-{{ $user->status == 'active' ? 'green' : 'red' }}-500">
+                                                </div>
+                                                <p class="text-{{ $user->status == 'active' ? 'green' : 'red' }}-500">
+
+                                                    {{ $user->status }}</p>
+                                            </div>
+                                            <div>
+                                                <span class="font-bold"> Code:</span>
+                                                {{ $user->code }}
+                                            </div>
+                                        </div>
+                                    </x-slot>
+                                    <div class="space-y-4">
+                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                            <div class="w-full">
+                                                <x-label>Name:</x-label>
+                                                <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->name }}" />
+
+
+
+                                            </div>
+                                            <div class="w-full">
+                                                <x-label>Last Name:</x-label>
+
+                                                <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->last_name }}" />
+
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                            <div class="w-full">
+                                                <x-label>Document:</x-label>
+                                                <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->document }}" />
+
+                                            </div>
+                                            <div class="w-full">
+                                                <x-label>Phone:</x-label>
+                                                <x-input type="text" class="border-gray-50  text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->phone }}" />
+
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                            <div class="w-full">
+                                                <x-label>Email:</x-label>
+                                                <x-input type="text" class="border-gray-50  text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->email }}" />
+
+                                            </div>
+                                            <div class="w-full">
+                                                <x-label>Role:</x-label>
+                                                <x-input type="text" class="border-gray-50  text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->roles->first()->name }}" />
+
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                            <div class="w-full">
+                                                <x-label>F. Created:</x-label>
+                                                <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->created_at }}" />
+
+                                            </div>
+                                            <div class="w-full">
+                                                <x-label>F Updated:</x-label>
+                                                <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                    disabled readonly value="{{ $user->updated_at }}" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <x-slot name="buttons">
+                                        <div class="space-x-2">
+                                            <x-button color="gray" secondary="800" primary="600"
+                                                class="px-4 py-2 --jb-modal-close">Cancel</x-button>
+                                        </div>
+                                    </x-slot>
+                                </x-modal-table>
+                            @endforeach
+                        @endif
+                    </tbody>
+                </table>
+                <div class="table-pagination">
+                    @if ($users->hasPages())
+                        {{ $users->links() }}
+                    @endif
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

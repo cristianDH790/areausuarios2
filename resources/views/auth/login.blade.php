@@ -43,8 +43,8 @@
                       </a>
                   @endif
 
-                  <x-button class="ms-4">
-                      {{ __('Log in') }}
+                  <x-button class="ms-4 px-3 py-2.5">
+                      {{ __('Login') }}
                   </x-button>
               </div>
           </form>

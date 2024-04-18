@@ -4,3 +4,4 @@
     </x-slot>
     <livewire:dashboard-admin.users.index />
 </x-app>
+    

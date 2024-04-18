@@ -26,9 +26,36 @@ class DatabaseSeeder extends Seeder
             'name' => 'cristian',
             'email' => 'admin@admin.com',
             'last_name' => 'de la cruz huarancca',
-            'document' => '73042638',
+            'document' => '73042634',
             'phone' => '987654321',
-            'code' => 'cl-73042638',
+            'code' => 'AD-73042634',
+            'password' => bcrypt('123456789'),
+        ])->assignRole('admin');
+        User::create([
+            'name' => 'luis',
+            'email' => 'luis@admin.com',
+            'last_name' => 'de la cruz huarancca',
+            'document' => '73042633',
+            'phone' => '987654321',
+            'code' => 'AD-73042633',
+            'password' => bcrypt('123456789'),
+        ])->assignRole('admin');
+        User::create([
+            'name' => 'wilder',
+            'email' => 'wilder@admin.com',
+            'last_name' => 'de la cruz huarancca',
+            'document' => '73042632',
+            'phone' => '987654321',
+            'code' => 'AD-73042632',
+            'password' => bcrypt('123456789'),
+        ])->assignRole('admin');
+        User::create([
+            'name' => 'jorge',
+            'email' => 'jorge@admin.com',
+            'last_name' => 'de la cruz huarancca',
+            'document' => '73042631',
+            'phone' => '987654321',
+            'code' => 'AD-73042638',
             'password' => bcrypt('123456789'),
         ])->assignRole('admin');
         User::create([
@@ -37,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'de la cruz huarancca',
             'document' => '73042637',
             'phone' => '987654321',
-            'code' => 'cl-73042637',
+            'code' => 'CL-73042637',
             'password' => bcrypt('123456789'),
         ])->assignRole('customer');
     }
