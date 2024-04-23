@@ -211,7 +211,7 @@
                                         <div class="space-x-2">
                                             <x-button color="gray" secondary="800" primary="600"
                                                 class="px-4 py-2 --jb-modal-close">Cancel</x-button>
-                                            <x-button color="blue" wire:loading.attr="disabled" wire:click="save"
+                                            <x-button color="blue"  wire:click="save"
                                                 secondary="800" primary="500" class="px-4 py-2">Save</x-button>
                                         </div>
                                     </x-slot>

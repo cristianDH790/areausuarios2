@@ -85,7 +85,7 @@ class Index extends Component
             $user->last_name = $this->last_name;
             $user->phone = $this->phone;
             $user->status = "inactive";
-            $user->code = "AD" . $this->document;
+            $user->code = "AD-" . $this->document;
             $user->password = bcrypt($this->password);
             $user->save();
             $user->assignRole('admin');

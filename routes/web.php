@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardAdmin\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\dashboardAdmin\DashboardAdminController;
 use App\Http\Controllers\DashboardAdmin\UsersController;
@@ -44,4 +45,6 @@ Route::middleware([
 ])->group(function () {
     route::get('/home', [HomeController::class, 'index'])->name('home.index');
     route::get('/users', [UsersController::class, 'index'])->name('user.index');
+    route::get('/customers', [CustomerController::class, 'index'])->name('customer.index');
+    Route::get('/customers/{code}', [CustomerController::class, 'edit'])->name('customer.edit');
 });
