@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_service_id')->constrained();
+            $table->foreignId('type_service_id')->constrained('type_services', 'id')->onDelete('restrict');
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('little_description');
             $table->double('price', 8, 2);
-            $table->double('price_discount ', 8, 2);
+            $table->double('price_discount', 8, 2);
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->string('code_service');
