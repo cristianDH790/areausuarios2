@@ -111,12 +111,26 @@
                             <span class="menu-item-label">Customers</span>
                         </a>
                     </li>
-                    <li class="--set-active-profile-html">
-                        <a href="#">
-                            <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-                            <span class="menu-item-label">Profile</span>
+                    <li>
+                        <a class="dropdown">
+                            <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                            <span class="menu-item-label">Service</span>
+                            <span class="icon"><i class="mdi mdi-plus"></i></span>
                         </a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('type_service.index') }}">
+                                    <span>Type Service</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('service.index') }}">
+                                    <span>Service</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li>
                         <a href="login.html">
                             <span class="icon"><i class="mdi mdi-lock"></i></span>

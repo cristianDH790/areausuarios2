@@ -139,83 +139,13 @@
                                         <div class="space-x-2">
                                             <x-button color="gray" secondary="800" primary="600"
                                                 class="px-4 py-2 --jb-modal-close">Cancel</x-button>
-                                            <x-button color="red" wire:click="delete    " secondary="800"
-                                                primary="500" class="px-4 py-2">Delete</x-button>
+                                            <x-button color="red" wire:click="delete({{ $customer->id }})"
+                                                secondary="800" primary="500" class="px-4 py-2">Delete</x-button>
 
                                         </div>
                                     </x-slot>
                                 </x-modal-table>
-                                <x-modal-table val="-create">
-                                    <x-slot name="title">
-                                        Create Customer
-                                    </x-slot>
-                                    <div class="space-y-4">
-                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                            <div class="w-full">
-                                                <x-label>Name:</x-label>
-                                                <x-input type="text" class="border-gray-50 w-full" required
-                                                    placeholder="Name" wire:model="name" />
-                                                @error('name')
-                                                    <span class="text-red-600">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="w-full">
-                                                <x-label>Last Name:</x-label>
-                                                <x-input type="text" class="border-gray-50 w-full" required
-                                                    placeholder="Last Name" wire:model="last_name" />
-                                                @error('last_name')
-                                                    <span class="text-red-600">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                            <div class="w-full">
-                                                <x-label>Document:</x-label>
-                                                <x-input type="text" class="border-gray-50 w-full" required
-                                                    placeholder="Document" wire:model="document" />
-                                                @error('document')
-                                                    <span class="text-red-600">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="w-full">
-                                                <x-label>Phone:</x-label>
-                                                <x-input type="number" class="border-gray-50 w-full"
-                                                    placeholder="Phone" wire:model="phone" />
-                                                @error('phone')
-                                                    <span class="text-red-600">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                            <div class="w-full">
-                                                <x-label>Email:</x-label>
-                                                <x-input type="email" class="border-gray-50 w-full" required
-                                                    placeholder="Email" wire:model="email" />
-                                                @error('email')
-                                                    <span class="text-red-600">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="w-full">
-                                                <x-label>Password:</x-label>
-                                                <x-input type="password"
-                                                    class="{{ $errors->has('name') ? 'border-red-500' : 'border-gray-50' }} w-full"
-                                                    required placeholder="password" wire:model="password" />
-                                                @error('password')
-                                                    <span class="text-red-600">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <x-slot name="buttons">
-                                        <div class="space-x-2">
-                                            <x-button color="gray" secondary="800" primary="600"
-                                                class="px-4 py-2 --jb-modal-close">Cancel</x-button>
-                                            <x-button color="blue" wire:loading.attr="disabled" wire:click="save"
-                                                secondary="800" primary="500" class="px-4 py-2">Save</x-button>
-                                        </div>
-                                    </x-slot>
-                                </x-modal-table>
                                 <x-modal-table val="-view-{{ $customer->id }}">
                                     <x-slot name="title">
                                         <div class="space-x-2 flex items-center justify-between  w-full">
@@ -311,6 +241,77 @@
                                 </x-modal-table>
                             @endforeach
                         @endif
+                        <x-modal-table val="-create">
+                            <x-slot name="title">
+                                Create Customer
+                            </x-slot>
+                            <div class="space-y-4">
+                                <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                    <div class="w-full">
+                                        <x-label>Name:</x-label>
+                                        <x-input type="text" class="border-gray-50 w-full" required
+                                            placeholder="Name" wire:model="name" />
+                                        @error('name')
+                                            <span class="text-red-600">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="w-full">
+                                        <x-label>Last Name:</x-label>
+                                        <x-input type="text" class="border-gray-50 w-full" required
+                                            placeholder="Last Name" wire:model="last_name" />
+                                        @error('last_name')
+                                            <span class="text-red-600">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                    <div class="w-full">
+                                        <x-label>Document:</x-label>
+                                        <x-input type="text" class="border-gray-50 w-full" required
+                                            placeholder="Document" wire:model="document" />
+                                        @error('document')
+                                            <span class="text-red-600">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="w-full">
+                                        <x-label>Phone:</x-label>
+                                        <x-input type="number" class="border-gray-50 w-full" placeholder="Phone"
+                                            wire:model="phone" />
+                                        @error('phone')
+                                            <span class="text-red-600">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                    <div class="w-full">
+                                        <x-label>Email:</x-label>
+                                        <x-input type="email" class="border-gray-50 w-full" required
+                                            placeholder="Email" wire:model="email" />
+                                        @error('email')
+                                            <span class="text-red-600">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="w-full">
+                                        <x-label>Password:</x-label>
+                                        <x-input type="password"
+                                            class="{{ $errors->has('name') ? 'border-red-500' : 'border-gray-50' }} w-full"
+                                            required placeholder="password" wire:model="password" />
+                                        @error('password')
+                                            <span class="text-red-600">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <x-slot name="buttons">
+                                <div class="space-x-2">
+                                    <x-button color="gray" secondary="800" primary="600"
+                                        class="px-4 py-2 --jb-modal-close">Cancel</x-button>
+                                    <x-button color="blue" wire:loading.attr="disabled" wire:click="save"
+                                        secondary="800" primary="500" class="px-4 py-2">Save</x-button>
+                                </div>
+                            </x-slot>
+                        </x-modal-table>
                     </tbody>
                 </table>
                 <div class="table-pagination">
