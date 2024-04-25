@@ -128,9 +128,8 @@
                 <hr>
                 <div class="field">
                     <div class="control">
-                        <x-button class="px-3 py-2" color="gray" wire:click="refresh">
-                            Cancel
-                        </x-button>
+                        <a class="px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700"
+                            href="{{ route('customer.edit', ['code' => $user->code]) }}">cancel</a>
                         <x-button class="px-3 py-2" color="green" primary="600"
                             wire:click="update({{ $user->id }})">
                             Edit

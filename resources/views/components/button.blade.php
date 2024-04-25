@@ -1,6 +1,13 @@
-@props(['color' => 'gray', 'primary' => '800', 'secondary' => '700'])
+@props(['color' => 'gray', 'primary' => '800', 'secondary' => '700', 'href' => null])
 
-<button
-    {{ $attributes->merge(['type' => 'submit', 'class' => 'inline-flex items-center bg-' . $color . '-' . $primary . ' border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-' . $color . '-' . $secondary . ' focus:bg-' . $color . '-' . $secondary . ' active:bg-' . $color . '-' . ($primary + 100) . ' focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150']) }}>
-    {{ $slot }}
-</button>
+@if ($href == null)
+    <button
+        {{ $attributes->merge(['type' => 'submit', 'class' => 'inline-flex items-center bg-' . $color . '-' . $primary . ' border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-' . $color . '-' . $secondary . ' focus:bg-' . $color . '-' . $secondary . ' active:bg-' . $color . '-' . ($primary + 100) . ' focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150']) }}>
+        {{ $slot }}
+    </button>
+@else
+    <a
+        {{ $attributes->merge(['href' => $href, 'class' => 'inline-flex items-center bg-' . $color . '-' . $primary . ' border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-' . $color . '-' . $secondary . ' focus:bg-' . $color . '-' . $secondary . ' active:bg-' . $color . '-' . ($primary + 100) . ' focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150']) }}>
+        {{ $slot }}
+    </a>
+@endif

@@ -54,7 +54,8 @@ class Index extends Component
         $user->save();
 
         // Mostrar un mensaje de alerta
-        $this->alert('success', 'Status edited successfully!');
+        $this->flash('success', 'Status edited successfully!');
+        return redirect()->route('user.index');
     }
 
 
@@ -67,7 +68,8 @@ class Index extends Component
         $user->delete();
 
         // Mostrar un mensaje de alerta
-        $this->alert('success', 'User deleted successfully!');
+        $this->flash('success', 'User deleted successfully!');
+        return redirect()->route('user.index');
     }
 
     public function mount()
@@ -92,7 +94,8 @@ class Index extends Component
 
             $this->reset(['name', 'document', 'email', 'last_name', 'phone', 'password']);
 
-            $this->alert('success',  'User added successfully!');
+            $this->flash('success',  'User added successfully!');
+            return redirect()->route('user.index');
         } catch (ValidationException $e) {
 
             $validationErrors = $e->validator->errors()->all();

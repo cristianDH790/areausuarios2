@@ -46,10 +46,8 @@ class Edit extends Component
         $this->updated_at = $user->updated_at;
         $this->created_at = $user->created_at;
     }
-    public function refresh()
-    {
-        return redirect()->route('customer.edit', $this->user->id);
-    }
+
+
     public function update($id)
     {
         $this->validate();
@@ -71,7 +69,8 @@ class Edit extends Component
 
         $user->update();
 
-        $this->alert('success', 'Customer updated successfully!');
+        $this->flash('success', 'Customer updated successfully!');
+        return redirect()->route('customer.edit');
     }
 
     public function render()

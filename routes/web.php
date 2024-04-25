@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardAdmin\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\dashboardAdmin\DashboardAdminController;
+use App\Http\Controllers\DashboardAdmin\ServiceController;
+use App\Http\Controllers\DashboardAdmin\TypeServiceController;
 use App\Http\Controllers\DashboardAdmin\UsersController;
 use App\Http\Controllers\dashboardUser\DashboardUserController;
 use App\Http\Controllers\HomeController as ControllersHomeController;
@@ -47,4 +49,8 @@ Route::middleware([
     route::get('/users', [UsersController::class, 'index'])->name('user.index');
     route::get('/customers', [CustomerController::class, 'index'])->name('customer.index');
     Route::get('/customers/{code}', [CustomerController::class, 'edit'])->name('customer.edit');
+    Route::get('/type_service', [TypeServiceController::class, 'index'])->name('type_service.index');
+    Route::get('/type_service/{id}', [TypeServiceController::class, 'edit'])->name('type_service.edit');
+    Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+    Route::get('/service/{id}', [ServiceController::class, 'edit'])->name('service.edit');
 });

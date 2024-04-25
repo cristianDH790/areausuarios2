@@ -16,14 +16,15 @@ return new class extends Migration
             $table->foreignId('type_service_id')->constrained('type_services', 'id')->onDelete('restrict');
             $table->string('name');
             $table->string('slug');
-            $table->string('little_description');
+            $table->string('little_description')->nullable();
             $table->double('price', 8, 2);
             $table->double('price_discount', 8, 2);
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('code_service');
             $table->string('hours');
-            $table->text('description');
+            $table->text('image')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
