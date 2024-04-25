@@ -12,4 +12,8 @@ class service extends Model
     {
         return $this->belongsTo(Type_Service::class);
     }
+    public function certificate()
+    {
+        return $this->hasOne(Certificate::class);
+    }
 }
