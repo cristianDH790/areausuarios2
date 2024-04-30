@@ -30,9 +30,9 @@
                                 <th>#</th>
                                 <th class="image-cell">Image</th>
                                 <th>Name</th>
-                                <th>prefix</th>
-                                <th>document</th>
-                                <th>fone</th>
+                                <th>Prefix</th>
+                                <th>Document</th>
+                                <th>Phone</th>
                                 <th>Accion</th>
                             </tr>
                         </thead>
@@ -81,7 +81,7 @@
                                                 </x-button>
 
                                                 <x-button class=" --jb-modal px-1 py-1"
-                                                    href="{{ route('service.edit', $exhibitor->id) }}" color="yellow"
+                                                    href="{{ route('exhibitor.edit', $exhibitor->id) }}" color="yellow"
                                                     secondary="800" primary="600" title="view">
                                                     <span class="icon"><i class="mdi mdi-pencil"></i></span>
                                                 </x-button>
@@ -97,16 +97,11 @@
 
                                         </td>
                                     </tr>
-
-
-
-
-
                                     <x-modal-table val="-delete-{{ $exhibitor->id }}">
                                         <x-slot name="title">
                                             Delete service: {{ $exhibitor->name }}
                                         </x-slot>
-                                        Are you sure to delete this service?
+                                        Are you sure to delete this exhibitor?
                                         <x-slot name="buttons">
                                             <div class="space-x-2">
                                                 <x-button color="gray" secondary="800" primary="600"
@@ -135,65 +130,42 @@
                                         <div class="space-y-4">
                                             <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                                 <div class="w-full">
+                                                    <x-label>Prefix:</x-label>
+                                                    <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                        disabled readonly value="{{ $exhibitor->prefix }}" />
+                                                </div>
+                                                <div class="w-full">
                                                     <x-label>Name:</x-label>
                                                     <x-input type="text" class="border-gray-50 text-gray-500 w-full"
                                                         disabled readonly value="{{ $exhibitor->name }}" />
                                                 </div>
+                                                <div class="w-full">
+                                                    <x-label>Last Name:</x-label>
+                                                    <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                        disabled readonly value="{{ $exhibitor->last_name }}" />
+                                                </div>
+
 
                                             </div>
                                             <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                                 <div class="w-full">
-                                                    <x-label>Slug:</x-label>
-                                                    <x-input type="text" class="border-gray-50 text-gray-500 w-full"
-                                                        disabled readonly value="{{ $exhibitor->slug }}" />
+                                                    <x-label>Document:</x-label>
+                                                    <x-input type="text"
+                                                        class="border-gray-50 text-gray-500 w-full" disabled readonly
+                                                        value="{{ $exhibitor->document }}" />
                                                 </div>
                                                 <div class="w-full">
-                                                    <x-label>Price:</x-label>
-                                                    <x-input type="text" class="border-gray-50 text-gray-500 w-full"
-                                                        disabled readonly value="{{ $exhibitor->price }}" />
+                                                    <x-label>Phone:</x-label>
+                                                    <x-input type="number"
+                                                        class="border-gray-50 text-gray-500 w-full" disabled readonly
+                                                        value="{{ $exhibitor->phone }}" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                                 <div class="w-full">
-                                                    <x-label>Price discount:</x-label>
-                                                    <x-input type="text"
-                                                        class="border-gray-50 text-gray-500 w-full" disabled readonly
-                                                        value="{{ $exhibitor->price_discount }}" />
-                                                </div>
-                                                <div class="w-full">
-                                                    <x-label>Hours:</x-label>
-                                                    <x-input type="text"
-                                                        class="border-gray-50 text-gray-500 w-full" disabled readonly
-                                                        value="{{ $exhibitor->hours }}" />
-                                                </div>
-
-                                            </div>
-                                            <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                                <div class="w-full">
-                                                    <x-label>Start date:</x-label>
-                                                    <x-input type="text"
-                                                        class="border-gray-50 text-gray-500 w-full" disabled readonly
-                                                        value="{{ $exhibitor->start_date }}" />
-                                                </div>
-                                                <div class="w-full">
-                                                    <x-label>End date:</x-label>
-                                                    <x-input type="text"
-                                                        class="border-gray-50 text-gray-500 w-full" disabled readonly
-                                                        value="{{ $exhibitor->end_date }}" />
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                                <div class="w-full">
-                                                    <x-label>Description little:</x-label>
+                                                    <x-label>Review:</x-label>
                                                     <x-textarea class="border-gray-50 w-full" disabled readonly
-                                                        placeholder="Description Little">{{ $exhibitor->little_description }}</x-textarea>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                                <div class="w-full">
-                                                    <x-label>Description:</x-label>
-                                                    <x-textarea class="border-gray-50 w-full" disabled readonly
-                                                        placeholder="Description">{{ $exhibitor->description }}</x-textarea>
+                                                        placeholder="Description Little">{{ $exhibitor->review }}</x-textarea>
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap md:flex-nowrap space-x-2">
@@ -202,7 +174,7 @@
                                                     <x-label>Image:</x-label>
                                                     @if ($exhibitor->photo)
                                                         <img src="{{ asset('storage/' . $exhibitor->photo) }}"
-                                                            alt="image service" class="w-75 h-auto">
+                                                            alt="image exhibitor" class="w-75 h-auto">
                                                     @else
                                                         <span class="text-red-500">*
                                                             no image found. please edit the default image</span>

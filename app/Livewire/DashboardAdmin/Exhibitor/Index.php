@@ -17,7 +17,6 @@ class Index extends Component
     use LivewireAlert;
     use WithPagination;
     use WithFileUploads;
-    public $open = true;
     public $search = "";
     public $file;
     public $pathfile;
@@ -55,6 +54,14 @@ class Index extends Component
         'file.max' => 'The file must not weigh more than 25MB',
     ];
 
+    public function delete($id)
+    {
+        $exhibitor = exhibitor::find($id);
+        Storage::delete('public/' . $exhibitor->photo);
+        $exhibitor->delete();
+        $this->flash('success', 'Exhibitor successfully deleted');
+        return redirect()->route('exhibitor.index');
+    }
 
     public function save()
     {

@@ -75,7 +75,7 @@ class Edit extends Component
         $this->pathfile = $this->service->image;
         $this->code_service = $this->service->code_service;
     }
-    public function save()
+    public function edit()
     {
         $this->validate();
         $this->service->name = $this->name;
@@ -101,7 +101,7 @@ class Edit extends Component
         }
 
 
-        $this->service->save();
+        $this->service->update();
         $this->reset('name', 'start_date', 'end_date', 'type_service_id', 'description', 'little_description', 'price', 'slug', 'hours', 'price_discount', 'file');
         $this->flash('success', 'service updated successfully!');
         return redirect()->route('service.index');
