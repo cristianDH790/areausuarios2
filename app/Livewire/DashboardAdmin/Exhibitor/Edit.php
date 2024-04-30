@@ -55,7 +55,7 @@ class Edit extends Component
         $this->phone = $this->exhibitor->phone;
         $this->document = $this->exhibitor->document;
         $this->review = $this->exhibitor->review;
-        $this->photo = $this->exhibitor->photo;
+        //$this->photo = $this->exhibitor->photo;
         $this->pathfile = $this->exhibitor->photo;
     }
     public function edit()

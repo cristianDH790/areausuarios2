@@ -32,7 +32,7 @@ class Index extends Component
     public $slug;
     public $hours;
     public $price_discount;
-   
+
 
     protected $rules = [
         'name' => 'required|min:6|unique:services,name',
@@ -42,7 +42,7 @@ class Index extends Component
         'description' => '',
         'little_description' => '',
         'price' => 'required',
-        'slug' => 'required',
+        'slug' => 'required|unique:services,slug',
         'hours' => 'required',
         'price_discount' => 'required',
     ];
@@ -56,6 +56,7 @@ class Index extends Component
         'type_service_id.required' => 'El campo tipo de servicio es requerido',
         'price.required' => 'El campo precio es requerido',
         'slug.required' => 'El campo slug es requerido',
+        'slug.unique' => 'El campo slug ya existe',
         'hours.required' => 'El campo horas es requerido',
         'price_discount.required' => 'El campo precio de descuento es requerido',
     ];

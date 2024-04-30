@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('alias');
             $table->string('name_one');
             $table->string('name_two');
-            $table->string('photo_firm');
-            $table->string('photo_seal');
+            $table->string('photo_firm')->unique()->nullable();
+            $table->string('photo_seal')->unique()->nullable();
             $table->timestamps();
         });
     }

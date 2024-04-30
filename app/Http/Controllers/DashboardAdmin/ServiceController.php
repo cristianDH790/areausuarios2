@@ -12,9 +12,9 @@ class ServiceController extends Controller
     {
         return view('dashboardAdmin.service.index');
     }
-    public function edit($id)
+    public function edit($slug)
     {
-        $service = service::where('id', $id)->firstOrFail();
+        $service = service::where('slug', $slug)->firstOrFail();
         return view('dashboardAdmin.service.edit', compact('service'));
     }
 }
