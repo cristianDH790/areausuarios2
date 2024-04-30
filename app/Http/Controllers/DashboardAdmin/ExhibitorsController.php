@@ -20,4 +20,3 @@ class ExhibitorsController extends Controller
         $exhibitor = exhibitor::where('id', $id)->firstOrFail();
         return view('dashboardAdmin.exhibitor.edit', compact('exhibitor'));
     }
-}

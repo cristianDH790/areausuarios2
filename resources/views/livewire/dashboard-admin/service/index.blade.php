@@ -77,8 +77,8 @@
                                                     <span class="icon"><i class="mdi mdi-eye"></i></span>
                                                 </x-button>
 
-                                                <x-button class=" --jb-modal px-1 py-1"
-                                                    href="{{ route('service.edit', $service->id) }}" color="yellow"
+                                                <x-button class=" px-1 py-1"
+                                                    href="{{ route('service.edit', $service->slug) }}" color="yellow"
                                                     secondary="800" primary="600" title="view">
                                                     <span class="icon"><i class="mdi mdi-pencil"></i></span>
                                                 </x-button>

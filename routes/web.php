@@ -52,8 +52,10 @@ Route::middleware([
     Route::get('/type_service', [TypeServiceController::class, 'index'])->name('type_service.index');
     Route::get('/type_service/{id}', [TypeServiceController::class, 'edit'])->name('type_service.edit');
     Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
-    Route::get('/service/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::get('/service/{slug}', [ServiceController::class, 'edit'])->name('service.edit');
     Route::get('/exhibitors', [ExhibitorsController::class, 'index'])->name('exhibitor.index');
     Route::get('/exhibitors/{id}', [ExhibitorsController::class, 'edit'])->name('exhibitor.edit');
     Route::get('/firms', [FirmController::class, 'index'])->name('firm.index');
+    Route::get('/firms/{id}', [FirmController::class, 'edit'])->name('firm.edit');
+
 });

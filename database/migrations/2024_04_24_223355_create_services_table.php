@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('type_service_id')->constrained('type_services', 'id')->onDelete('restrict');
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('little_description')->nullable();
             $table->double('price', 8, 2);
             $table->double('price_discount', 8, 2);
