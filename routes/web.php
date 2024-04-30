@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\DashboardAdmin\CustomerController;
+use App\Http\Controllers\DashboardAdmin\ExhibitorsController;
+use App\Http\Controllers\DashboardAdmin\FirmController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\dashboardAdmin\DashboardAdminController;
+
 use App\Http\Controllers\DashboardAdmin\ServiceController;
 use App\Http\Controllers\DashboardAdmin\TypeServiceController;
 use App\Http\Controllers\DashboardAdmin\UsersController;
-use App\Http\Controllers\dashboardUser\DashboardUserController;
-use App\Http\Controllers\HomeController as ControllersHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,4 +53,6 @@ Route::middleware([
     Route::get('/type_service/{id}', [TypeServiceController::class, 'edit'])->name('type_service.edit');
     Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
     Route::get('/service/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::get('/exhibitors', [ExhibitorsController::class, 'index'])->name('exhibitor.index');
+    Route::get('/firms', [FirmController::class, 'index'])->name('firm.index');
 });

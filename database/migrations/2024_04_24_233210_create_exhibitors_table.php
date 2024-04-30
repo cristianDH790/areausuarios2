@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('prefix');
-            $table->string('document');
+            $table->string('document')->unique();
             $table->string('phone');
-            $table->string('review');
-            $table->string('photo');
+            $table->text('review');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

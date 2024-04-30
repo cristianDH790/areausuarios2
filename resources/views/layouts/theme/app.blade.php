@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -130,11 +130,16 @@
                             </li>
                         </ul>
                     </li>
-
                     <li>
-                        <a href="login.html">
+                        <a href="{{ route('exhibitor.index') }}">
                             <span class="icon"><i class="mdi mdi-lock"></i></span>
-                            <span class="menu-item-label">Login</span>
+                            <span class="menu-item-label">exhibitors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('firm.index') }}">
+                            <span class="icon"><i class="mdi mdi-lock"></i></span>
+                            <span class="menu-item-label">firms</span>
                         </a>
                     </li>
                     <li>
