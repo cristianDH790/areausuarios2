@@ -57,4 +57,5 @@ Route::middleware([
     Route::get('/exhibitors/{id}', [ExhibitorsController::class, 'edit'])->name('exhibitor.edit');
     Route::get('/firms', [FirmController::class, 'index'])->name('firm.index');
     Route::get('/firms/{id}', [FirmController::class, 'edit'])->name('firm.edit');
+
 });

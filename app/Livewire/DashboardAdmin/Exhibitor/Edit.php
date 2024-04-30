@@ -56,7 +56,7 @@ class Edit extends Component
         $this->document = $this->exhibitor->document;
         $this->review = $this->exhibitor->review;
         //$this->photo = $this->exhibitor->photo;
-        $this->pathfile = $this->exhibitor->photo;
+        $this->photo = $this->exhibitor->photo;
     }
     public function edit()
     {
@@ -91,4 +91,4 @@ class Edit extends Component
     {
         return view('livewire.dashboard-admin.exhibitor.edit');
     }
-}
+
