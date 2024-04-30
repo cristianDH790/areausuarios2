@@ -131,31 +131,18 @@
                             <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     @else
-                        @if ($service->old_image == null)
-                            <x-label>Image:</x-label>
-                            <x-file.drag-and-drop-single formats="pdf, jpeg, jpg, bmp, png" max_size="25Mb"
-                                accept="image/jpeg,image/bmp,image/png">
-                                Subir
-                                imagen
-                                service
-                            </x-file.drag-and-drop-single>
-                            @error('file')
-                                <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        @else
-                            <x-label>Old Image</x-label>
-                            <img src="{{ asset('storage/' . $pathfile) }}" alt="image" class="w-75 h-auto">
-                            <x-label>Image:</x-label>
-                            <x-file.drag-and-drop-single formats="pdf, jpeg, jpg, bmp, png" max_size="25Mb"
-                                accept="image/jpeg,image/bmp,image/png">
-                                Subir
-                                imagen
-                                service
-                            </x-file.drag-and-drop-single>
-                            @error('file')
-                                <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        @endif
+                        <x-label>Old Image</x-label>
+                        <img src="{{ asset('storage/' . $pathfile) }}" alt="image" class="w-75 h-auto">
+                        <x-label>Image:</x-label>
+                        <x-file.drag-and-drop-single formats="pdf, jpeg, jpg, bmp, png" max_size="25Mb"
+                            accept="image/jpeg,image/bmp,image/png">
+                            Subir
+                            imagen
+                            service
+                        </x-file.drag-and-drop-single>
+                        @error('file')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
                     @endif
 
                 </div>
@@ -163,7 +150,7 @@
 
         </div>
         <div class="flex justify-end">
-            <x-button color="blue" wire:click="save" secondary="800" primary="500" class="px-4 py-2">Save</x-button>
+            <x-button color="blue" wire:click="edit" secondary="800" primary="500" class="px-4 py-2">Save</x-button>
         </div>
 
     </div>
