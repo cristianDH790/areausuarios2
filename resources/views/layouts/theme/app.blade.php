@@ -111,6 +111,19 @@
                             <span class="menu-item-label">Customers</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{ route('exhibitor.index') }}">
+                            <span class="icon"><i class="mdi mdi-lock"></i></span>
+                            <span class="menu-item-label">Exhibitors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('firm.index') }}">
+                            <span class="icon"><i class="mdi mdi-lock"></i></span>
+                            <span class="menu-item-label">Firms</span>
+                        </a>
+                    </li>
                     <li>
                         <a class="dropdown">
                             <span class="icon"><i class="mdi mdi-view-list"></i></span>
@@ -131,36 +144,25 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ route('exhibitor.index') }}">
-                            <span class="icon"><i class="mdi mdi-lock"></i></span>
-                            <span class="menu-item-label">exhibitors</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('firm.index') }}">
-                            <span class="icon"><i class="mdi mdi-lock"></i></span>
-                            <span class="menu-item-label">firms</span>
-                        </a>
-                    </li>
-                    <li>
                         <a class="dropdown">
                             <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                            <span class="menu-item-label">Submenus</span>
+                            <span class="menu-item-label">Certificate</span>
                             <span class="icon"><i class="mdi mdi-plus"></i></span>
                         </a>
                         <ul>
                             <li>
-                                <a href="#void">
-                                    <span>Sub-item One</span>
+                                <a href="{{ route('type_certicate.index') }}">
+                                    <span>Type certificate</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#void">
-                                    <span>Sub-item Two</span>
+                                <a href="{{ route('certificate.index') }}">
+                                    <span>Certificate</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
+
                 </ul>
                 <p class="menu-label">About</p>
                 <ul class="menu-list">

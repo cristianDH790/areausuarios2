@@ -55,7 +55,6 @@ class Index extends Component
     {
         try {
             $this->validate();
-
             $firm = new firm();
             $firm->alias = $this->alias;
             $firm->name_one = $this->name_one;

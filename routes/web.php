@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\DashboardAdmin\CertificateController;
 use App\Http\Controllers\DashboardAdmin\CustomerController;
 use App\Http\Controllers\DashboardAdmin\ExhibitorsController;
 use App\Http\Controllers\DashboardAdmin\FirmController;
+use App\Http\Controllers\DashboardAdmin\ModuleController;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\DashboardAdmin\ServiceController;
+use App\Http\Controllers\DashboardAdmin\TypeCertificateController;
 use App\Http\Controllers\DashboardAdmin\TypeServiceController;
 use App\Http\Controllers\DashboardAdmin\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -57,5 +60,9 @@ Route::middleware([
     Route::get('/exhibitors/{id}', [ExhibitorsController::class, 'edit'])->name('exhibitor.edit');
     Route::get('/firms', [FirmController::class, 'index'])->name('firm.index');
     Route::get('/firms/{id}', [FirmController::class, 'edit'])->name('firm.edit');
-
+    Route::get('/type_certificate', [TypeCertificateController::class, 'index'])->name('type_certicate.index');
+    Route::get('/certificate', [CertificateController::class, 'index'])->name('certificate.index');
+    Route::get('/certificate/create', [CertificateController::class, 'create'])->name('certificate.create');
+    Route::get('/certificate/{id}', [CertificateController::class, 'edit'])->name('certificate.edit');
+    Route::get('/certificate/{id}/modules', [ModuleController::class, 'edit'])->name('certificate.module.edit');
 });
