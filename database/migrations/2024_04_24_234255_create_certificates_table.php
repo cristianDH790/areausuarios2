@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->nullable()->constrained('services', 'id')->onDelete('set null');
-            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
-            $table->foreignId('type_certificate_id')->nullable()->constrained('certificates', 'id')->onDelete('set null');
-            $table->foreignId('module_id')->nullable()->constrained('modules', 'id')->onDelete('set null');
+            $table->foreignId('service_id')->nullable()->constrained('services')->onDelete('set null');
+            $table->foreignId('type_certificate_id')->nullable()->constrained('type_certificates')->onDelete('set null');
             $table->string('broadcast_date');
-            $table->enum('status', ['pending', 'approved', 'rejected']);
+            $table->enum('status', ['active', 'inactive']);
             $table->string('photo_front');
             $table->string('photo_back');
+            $table->string('url_certificate')->nullable()->unique();
             $table->string('description');
             $table->timestamps();
         });

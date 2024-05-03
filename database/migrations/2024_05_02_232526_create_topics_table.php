@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('certificate_firms', function (Blueprint $table) {
-            $table->foreignId('certificate_id')->nullable()->constrained('certificates', 'id')->onDelete('set null');
-            $table->foreignId('firm_id')->nullable()->constrained('firms', 'id')->onDelete('set null');
+        Schema::create('topics', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('module_id')->constrained('modules', 'id')->onDelete('cascade');
+            $table->string('title');
+            $table->integer('order')->unique();
+            $table->timestamps();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('certificate_firms');
+        Schema::dropIfExists('topics');
     }
 };

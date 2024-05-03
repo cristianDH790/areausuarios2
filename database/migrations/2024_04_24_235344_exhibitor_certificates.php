@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exhibitor_certificates', function (Blueprint $table) {
-            $table->id();
+        Schema::create('exhibitor_certificates', function (Blueprint $table) {           
             $table->foreignId('exhibitor_id')->nullable()->constrained('exhibitors', 'id')->onDelete('set null');
-            $table->foreignId('certificate_id')->nullable()->constrained('certificates', 'id')->onDelete('set null');
-            $table->timestamps();
+            $table->foreignId('certificate_id')->nullable()->constrained('certificates', 'id')->onDelete('set null');          
         });
     }
 
