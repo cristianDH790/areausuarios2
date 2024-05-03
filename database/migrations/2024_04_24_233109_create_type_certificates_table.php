@@ -13,7 +13,8 @@
         {
             Schema::create('type_certificates', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
+                $table->string('name')->unique();
+                $table->string('code')->unique();
                 $table->timestamps();
             });
         }

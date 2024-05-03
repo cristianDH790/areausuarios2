@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\type_certificate;
+use App\Models\type_service;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -68,5 +70,31 @@ class DatabaseSeeder extends Seeder
             'code' => 'CL-73042637',
             'password' => bcrypt('123456789'),
         ])->assignRole('customer');
+        type_service::create([
+            'name' => 'Psicologia',
+            'code' => 'TS-' . random_int(1000, 9999) . '',
+        ]);
+        type_service::create([
+            'name' => 'Farmacia',
+            'code' => 'TS-' . random_int(1000, 9999) . '',
+        ]);
+        type_service::create([
+            'name' => 'Medicina',
+            'code' => 'TS-' . random_int(1000, 9999) . '',
+        ]);
+        $random_number = uniqid();  // Define la variable $random_number
+        $name = 'Certificado';      // Define la variable $name
+
+        type_certificate::create([
+            'name' => $name,  // Usar la variable $name en el array de datos
+            'code' => strtoupper(substr($name, 0, 2)) . "-" . $random_number,  // Usar la variable $random_number en el array de datos
+        ]);
+        $random_number = uniqid(); // Genera un identificador único basado en la hora actual
+        $name = 'Diploma';
+        type_certificate::create([
+
+            'name' => $name,
+            'code' => strtoupper(substr($name, 0, 2)) . "-" . $random_number,
+        ]);
     }
 }
