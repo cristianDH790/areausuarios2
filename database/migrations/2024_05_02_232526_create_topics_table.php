@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('module_id')->constrained('modules', 'id')->onDelete('cascade');
             $table->string('title');
-            $table->integer('order')->unique();
+
+            $table->integer('order');
+
+
             $table->timestamps();
         });
     }
@@ -27,4 +30,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('topics');
     }
+
 };
+

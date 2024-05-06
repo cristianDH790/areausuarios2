@@ -18,5 +18,7 @@
 
     </x-slot>
 
-    <livewire:dashboard-admin.certificate.module.edit />
+
+    <livewire:dashboard-admin.certificate.module.edit :certificate="$certificate" />
+
 </x-app>

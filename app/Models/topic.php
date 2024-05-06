@@ -15,6 +15,6 @@ class topic extends Model
     }
     public function module()
     {
-        return $this->belongsTo(module::class); 
-    }   
+        return $this->belongsTo(module::class);
+    }
 }

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('topic_id')->constrained('topics', 'id')->onDelete('cascade');
             $table->string('title');
-            $table->integer('order')->unique();
+
+            $table->integer('order');
+
             $table->timestamps();
         });
     }
@@ -27,4 +29,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('sub_topics');
     }
+
 };
+

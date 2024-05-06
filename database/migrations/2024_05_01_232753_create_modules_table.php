@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('certificate_id')->constrained('certificates', 'id')->onDelete('cascade');
             $table->string('title');
-            $table->integer('order')->unique();
+
+            $table->integer('order');
+
             $table->timestamps();
         });
     }
@@ -27,4 +29,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('modules');
     }
+
 };
+
