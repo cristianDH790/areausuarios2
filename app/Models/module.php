@@ -13,6 +13,11 @@ class module extends Model
     {
         return $this->hasMany(topic::class);
     }
+    public function sub_topics()
+    {
+        return $this->hasMany(sub_topic::class);
+    }
+
     public function materials()
     {
         return $this->hasMany(material::class);

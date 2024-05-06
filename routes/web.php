@@ -1,17 +1,19 @@
 <?php
 
-use App\Http\Controllers\DashboardAdmin\CertificateController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardAdmin\FirmController;
+use App\Http\Controllers\DashboardAdmin\UsersController;
+use App\Http\Controllers\DashboardAdmin\ModuleController;
+use App\Http\Controllers\DashboardAdmin\ServiceController;
+
 use App\Http\Controllers\DashboardAdmin\CustomerController;
 use App\Http\Controllers\DashboardAdmin\ExhibitorsController;
-use App\Http\Controllers\DashboardAdmin\FirmController;
-use App\Http\Controllers\DashboardAdmin\ModuleController;
-use App\Http\Controllers\HomeController;
-
-use App\Http\Controllers\DashboardAdmin\ServiceController;
-use App\Http\Controllers\DashboardAdmin\TypeCertificateController;
+use App\Http\Controllers\DashboardAdmin\CertificateController;
 use App\Http\Controllers\DashboardAdmin\TypeServiceController;
-use App\Http\Controllers\DashboardAdmin\UsersController;
-use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\presentation\HomePresentationController;
+use App\Http\Controllers\DashboardAdmin\TypeCertificateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,4 +67,12 @@ Route::middleware([
     Route::get('/certificate/create', [CertificateController::class, 'create'])->name('certificate.create');
     Route::get('/certificate/{id}', [CertificateController::class, 'edit'])->name('certificate.edit');
     Route::get('/certificate/{id}/modules', [ModuleController::class, 'edit'])->name('certificate.module.edit');
+
+    Route::get('/certificate/{id}/modules/contenido', [ModuleController::class, 'contenido'])->name('certificate.module.contenido.create');
+});
+
+
+//rutas de presentacion
+Route::middleware([])->group(function () {
+    route::get('/p-home', [HomePresentationController::class, 'index'])->name('p-home.index');
 });

@@ -10,7 +10,6 @@
         </section>
         <footer class="modal-card-foot">
             {{ $buttons }}
-
         </footer>
     </div>
 </div>
