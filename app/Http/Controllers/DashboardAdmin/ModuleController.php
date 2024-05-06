@@ -22,4 +22,6 @@ class ModuleController extends Controller
     {
         return "asdas";
     }
+
 }
+

@@ -3,7 +3,6 @@
     @livewireStyles
     <div>
 
-        as
 
     </div>
     @livewireScripts

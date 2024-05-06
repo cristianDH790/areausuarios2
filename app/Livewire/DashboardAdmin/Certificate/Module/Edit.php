@@ -313,4 +313,5 @@ class Edit extends Component
     {
         return view('livewire.dashboard-admin.certificate.module.edit');
     }
-}
+
+    }
