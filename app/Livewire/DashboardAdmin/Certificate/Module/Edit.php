@@ -307,10 +307,11 @@ class Edit extends Component
             $validationErrors = $e->validator->errors()->all();
             $this->alert('error', implode('<br>', $validationErrors));
         }
-
+    }
 
     public function render()
     {
         return view('livewire.dashboard-admin.certificate.module.edit');
     }
 
+    }

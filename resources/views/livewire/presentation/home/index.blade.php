@@ -3,8 +3,7 @@
     @livewireStyles
     <div>
 
-    
-        
+
     </div>
     @livewireScripts
 
