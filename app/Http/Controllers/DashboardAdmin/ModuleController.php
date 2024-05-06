@@ -17,8 +17,9 @@ class ModuleController extends Controller
 
         return view('dashboardAdmin.Certificate.Module.edit', compact('certificate'));
     }
+
     public function contenido($id)
     {
         return "asdas";
     }
-}
+

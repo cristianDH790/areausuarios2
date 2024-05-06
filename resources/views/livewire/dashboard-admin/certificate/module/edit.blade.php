@@ -1,6 +1,7 @@
 <div>
     <div>
 
+
         <table>
             <thead>
                 <div class="bg-gray-800 w-full text-white p-3 flex justify-between items-center">
@@ -444,3 +445,4 @@
                 @endif
             </tbody>
         </table>
+

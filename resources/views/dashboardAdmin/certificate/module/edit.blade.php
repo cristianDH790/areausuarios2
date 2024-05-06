@@ -9,6 +9,7 @@
                             class="text-blue-600 font-normal hover:underline">Certificates</a>
                     </li>
                     <li class="breadcrumb-item max-w-64 truncate">
+
                         {{ $certificate->service->name }} - Module
                     </li>
                 </ul>
@@ -17,5 +18,7 @@
 
     </x-slot>
 
+
     <livewire:dashboard-admin.certificate.module.edit :certificate="$certificate" />
+
 </x-app>

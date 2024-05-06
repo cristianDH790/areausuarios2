@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardAdmin\FirmController;
 use App\Http\Controllers\DashboardAdmin\UsersController;
 use App\Http\Controllers\DashboardAdmin\ModuleController;
 use App\Http\Controllers\DashboardAdmin\ServiceController;
+
 
 use App\Http\Controllers\DashboardAdmin\CustomerController;
 use App\Http\Controllers\DashboardAdmin\ExhibitorsController;
@@ -69,6 +71,7 @@ Route::middleware([
     Route::get('/certificate/{id}/modules', [ModuleController::class, 'edit'])->name('certificate.module.edit');
 
     Route::get('/certificate/{id}/modules/contenido', [ModuleController::class, 'contenido'])->name('certificate.module.contenido.create');
+
 });
 
 

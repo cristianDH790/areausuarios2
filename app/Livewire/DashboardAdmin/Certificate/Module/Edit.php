@@ -2,6 +2,7 @@
 
 namespace App\Livewire\DashboardAdmin\Certificate\Module;
 
+
 use App\Models\module;
 use App\Models\service;
 use Livewire\Component;
@@ -306,10 +307,10 @@ class Edit extends Component
             $validationErrors = $e->validator->errors()->all();
             $this->alert('error', implode('<br>', $validationErrors));
         }
-    }
+
 
     public function render()
     {
         return view('livewire.dashboard-admin.certificate.module.edit');
     }
-}
+
