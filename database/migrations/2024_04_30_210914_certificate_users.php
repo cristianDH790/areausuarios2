@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('certificate_users', function (Blueprint $table) {
             $table->foreignId('certificate_id')->constrained('certificates', 'id')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');   
+            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
+            $table->string('path_certificate')->nullable();
+            $table->string('delivered_by')->nullable();
         });
     }
 

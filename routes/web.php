@@ -68,10 +68,10 @@ Route::middleware([
     Route::get('/certificate', [CertificateController::class, 'index'])->name('certificate.index');
     Route::get('/certificate/create', [CertificateController::class, 'create'])->name('certificate.create');
     Route::get('/certificate/{id}', [CertificateController::class, 'edit'])->name('certificate.edit');
-    Route::get('/certificate/{id}/modules', [ModuleController::class, 'edit'])->name('certificate.module.edit');
+    Route::get('/certificate/{id}/modules', [ModuleController::class, 'index'])->name('certificate.module.index');
 
-    Route::get('/certificate/{id}/modules/contenido', [ModuleController::class, 'contenido'])->name('certificate.module.contenido.create');
-
+    Route::get('/certificate/{id}/certificate-edit', [ModuleController::class, 'certificate_edit'])->name('certificate.certificate-edit.index');
+    Route::get('/certificate/{id}/modules/{module}', [ModuleController::class, 'edit'])->name('certificate.module.edit');
 });
 
 

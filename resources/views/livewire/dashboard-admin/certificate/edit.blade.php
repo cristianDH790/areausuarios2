@@ -1,7 +1,7 @@
 <div class="max-w-6xl mx-auto ">
     <div class="bg-white px-4 py-4 card">
         <div class="flex justify-end">
-            <x-button color="green" href="{{ route('certificate.module.edit', $certificate->id) }}" secondary="800"
+            <x-button color="green" href="{{ route('certificate.module.index', $certificate->id) }}" secondary="800"
                 primary="500" class="px-4 py-2">Modulos</x-button>
         </div>
         <div class="space-y-4">

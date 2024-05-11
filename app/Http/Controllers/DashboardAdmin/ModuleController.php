@@ -10,18 +10,23 @@ use App\Models\certificate;
 
 class ModuleController extends Controller
 {
-    public  function edit($id)
+    public  function index($id)
     {
         $certificate = certificate::where('id', $id)->firstOrFail();
 
 
-        return view('dashboardAdmin.Certificate.Module.edit', compact('certificate'));
+        return view('dashboardAdmin.Certificate.Module.index', compact('certificate'));
     }
 
-    public function contenido($id)
+    public function edit($id, $module)
     {
-        return "asdas";
+        $certificate = certificate::where('id', $id)->firstOrFail();
+        $module = module::where('id', $module)->firstOrFail();
+        return view('dashboardAdmin.Certificate.Module.edit', compact('certificate', 'module'));
     }
-
+    public function certificate_edit($id)
+    {
+        $certificate = certificate::where('id', $id)->firstOrFail();
+        return view('dashboardAdmin.certificate.certificate_generate.certificate-edit', compact('certificate'));
+    }
 }
-

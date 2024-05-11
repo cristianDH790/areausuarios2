@@ -61,6 +61,11 @@
                                         <td class="actions-cell">
                                             <div class="buttons right nowrap space-x-1">
                                                 <x-button class=" px-1 py-1"
+                                                    href="{{ route('certificate.certificate-edit.index', $certificate->id) }}"
+                                                    color="indigo" secondary="800" primary="600" title="edit">
+                                                    <span class="icon"><i class="mdi mdi-file"></i></span>
+                                                </x-button>
+                                                <x-button class=" px-1 py-1"
                                                     href="{{ route('certificate.edit', $certificate->id) }}"
                                                     color="yellow" secondary="800" primary="600" title="edit">
                                                     <span class="icon"><i class="mdi mdi-pencil"></i></span>
