@@ -1,4 +1,12 @@
-@props(['formats' => '', 'max_size' => '', 'showList' => 1, 'accept' => '', 'label' => null, 'model' => 'file'])
+@props([
+    'formats' => '',
+    'max_size' => '',
+    'showList' => 1,
+    'accept' => '',
+    'label' => null,
+    'model' => 'file',
+    'title' => 'imagen',
+])
 
 <div x-data="{ isUploading: false, isUploaded: false, progress: 0, files: null, selectedImage: null }" x-on:livewire-upload-start="isUploading = true; isUploaded = false"
     x-on:livewire-upload-finish="isUploading = false; isUploaded = true" x-on:livewire-upload-error="isUploading = false"
@@ -48,14 +56,16 @@
                         @endif
                     </div>
                     <x-button href="javascript:void(0)" secondary="800" primary="500" class="px-4 py-2">
-                        Seleccionar imagen
+                        Seleccionar {{ $title }}
                     </x-button>
                 </div>
             </template>
 
             <template x-if="selectedImage !== null">
-                <img :src="selectedImage" alt="Imagen seleccionada" class="w-full h-auto">
+                <img :src="selectedImage" alt="{{ $title }} seleccionada" class="w-full h-auto">
             </template>
+
+
         </div>
 
         <x-input-error for="{{ $model }}" class="mt-2"></x-input-error>

@@ -42,41 +42,42 @@
                         <div class="navbar-dropdown">
                             <a href="{{ route('profile.show') }}" class="navbar-item">
                                 <span class="icon"><i class="mdi mdi-account"></i></span>
-                                <span>My Profile</span>
+                                <span>Mi perfil</span>
                             </a>
-                            <a class="navbar-item">
+                            {{-- <a class="navbar-item">
                                 <span class="icon"><i class="mdi mdi-settings"></i></span>
-                                <span>Settings</span>
+                                <span>Configuracion</span>
                             </a>
                             <a class="navbar-item">
                                 <span class="icon"><i class="mdi mdi-email"></i></span>
-                                <span>Messages</span>
-                            </a>
+                                <span>Mensajes</span>
+                            </a> --}}
                             <hr class="navbar-divider">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="navbar-item">
                                     <span class="icon"><i class="mdi mdi-logout"></i></span>
-                                    <span>Log Out</span>
+                                    <span>Salir</span>
                                 </button>
                             </form>
 
                         </div>
                     </div>
-                    <a href="https://justboil.me/tailwind-admin-templates"
-                        class="navbar-item has-divider desktop-icon-only">
+                    <a href="https://api.whatsapp.com/send?phone=51924912297&text=Hola%20%2C%20Tengo%20un%20problema%20con%20la%20plataforma%20Área%20Usuarios.%20"
+                        class="navbar-item has-divider desktop-icon-only" target="_blank">
                         <span class="icon"><i class="mdi mdi-help-circle-outline"></i></span>
-                        <span>About</span>
+                        <span>Soporte</span>
                     </a>
-                    <a href="https://github.com/justboil/admin-one-tailwind"
+                    {{-- <a href="https://github.com/justboil/admin-one-tailwind"
                         class="navbar-item has-divider desktop-icon-only">
                         <span class="icon"><i class="mdi mdi-github-circle"></i></span>
                         <span>GitHub</span>
                     </a>
+                    <form action="{{ route('logout') }}" method="POST">
                     <a title="Log out" class="navbar-item desktop-icon-only">
                         <span class="icon"><i class="mdi mdi-logout"></i></span>
                         <span>Log out</span>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </nav>
@@ -93,98 +94,194 @@
                     <li class="active">
                         <a href="{{ route('home.index') }}">
                             <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
-                            <span class="menu-item-label">Dashboard</span>
+                            <span class="menu-item-label">Panel</span>
                         </a>
                     </li>
+                    @if (Auth::user()->hasAnyPermission('roles', 'permissions'))
+                        <li>
+                            <a class="dropdown">
+                                <span class="icon"><i class="mdi mdi-settings"></i></span>
+                                <span class="menu-item-label">Configuracion</span>
+                                <span class="icon"><i class="mdi mdi-plus"></i></span>
+                            </a>
+                            <ul>
+                                @if (Auth::user()->hasAnyPermission('roles'))
+                                    <li>
+                                        <a href="{{ route('role.index') }}">
+                                            <span>Roles</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->hasAnyPermission('permissions'))
+                                    <li>
+                                        <a href="{{ route('permissions.index') }}">
+                                            <span>Permisos</span>
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
                 <p class="menu-label">users</p>
                 <ul class="menu-list">
-                    <li class="--set-active-tables-html">
-                        <a href="{{ route('user.index') }}">
-                            <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-                            <span class="menu-item-label">Users</span>
-                        </a>
-                    </li>
-                    <li class="--set-active-forms-html">
-                        <a href="{{ route('customer.index') }}">
-                            <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-                            <span class="menu-item-label">Customers</span>
-                        </a>
-                    </li>
+                    @if (Auth::user()->hasAnyPermission('users'))
+                        <li class="--set-active-tables-html">
+                            <a href="{{ route('user.index') }}">
+                                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+                                <span class="menu-item-label">Users</span>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->hasAnyPermission('customers'))
+                        <li class="--set-active-forms-html">
+                            <a href="{{ route('customer.index') }}">
+                                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+                                <span class="menu-item-label">Customers</span>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->hasAnyPermission('exhibitors'))
+                        <li>
+                            <a href="{{ route('exhibitor.index') }}">
+                                <span class="icon"><i class="mdi mdi-account"></i></span>
+                                <span class="menu-item-label">Exhibitors</span>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->hasAnyPermission('firms'))
+                        <li>
+                            <a href="{{ route('firm.index') }}">
+                                <span class="icon"><i class="mdi mdi-signature"></i></span>
+                                <span class="menu-item-label">Firms</span>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->hasAnyPermission('banks'))
+                        <li>
+                            <a href="{{ route('bank.index') }}">
+                                <span class="icon"><i class="mdi mdi-bank"></i></span>
+                                <span class="menu-item-label">Bank</span>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->hasAnyPermission('type_services', 'services'))
+                        <li>
+                            <a class="dropdown">
+                                <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                                <span class="menu-item-label">Service</span>
+                                <span class="icon"><i class="mdi mdi-plus"></i></span>
+                            </a>
+                            <ul>
+                                @if (Auth::user()->hasAnyPermission('type_services'))
+                                    <li>
+                                        <a href="{{ route('type_service.index') }}">
+                                            <span>Type Service</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->hasAnyPermission('services'))
+                                    <li>
+                                        <a href="{{ route('service.index') }}">
+                                            <span>Service</span>
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </li>
 
-                    <li>
-                        <a href="{{ route('exhibitor.index') }}">
-                            <span class="icon"><i class="mdi mdi-lock"></i></span>
-                            <span class="menu-item-label">Exhibitors</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('firm.index') }}">
-                            <span class="icon"><i class="mdi mdi-lock"></i></span>
-                            <span class="menu-item-label">Firms</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown">
-                            <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                            <span class="menu-item-label">Service</span>
-                            <span class="icon"><i class="mdi mdi-plus"></i></span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="{{ route('type_service.index') }}">
-                                    <span>Type Service</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('service.index') }}">
-                                    <span>Service</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="dropdown">
-                            <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                            <span class="menu-item-label">Certificate</span>
-                            <span class="icon"><i class="mdi mdi-plus"></i></span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="{{ route('type_certicate.index') }}">
-                                    <span>Type certificate</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('certificate.index') }}">
-                                    <span>Certificate</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @endif
+                    @if (Auth::user()->hasAnyPermission('type_certicates', 'certicates'))
+                        <li>
+                            <a class="dropdown">
+                                <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                                <span class="menu-item-label">Certificate</span>
+                                <span class="icon"><i class="mdi mdi-plus"></i></span>
+                            </a>
+                            <ul>
+                                @if (Auth::user()->hasAnyPermission('type_certicates'))
+                                    <li>
+                                        <a href="{{ route('type_certicate.index') }}">
+                                            <span>Type certificate</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->hasAnyPermission('certicates'))
+                                    <li>
+                                        <a href="{{ route('certificate.index') }}">
+                                            <span>Certificate</span>
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+                    @if (Auth::user()->hasAnyPermission('sale_users', 'sale_finances', 'validate_finances', 'validate_users'))
+
+                        <li>
+                            <a class="dropdown">
+                                <span class="icon"><i class="mdi mdi-chart-bar"></i></span>
+                                <span class="menu-item-label">Ventas</span>
+                                <span class="icon"><i class="mdi mdi-plus"></i></span>
+                            </a>
+                            <ul>
+                                @if (Auth::user()->hasAnyPermission('sale_users'))
+                                    <li>
+                                        <a href="{{ route('sale_user.index') }}">
+                                            <span>Sale User</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->hasAnyPermission('sale_finances'))
+                                    <li>
+                                        <a href="{{ route('finances.index') }}">
+                                            <span>finances</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->hasAnyPermission('validate_finances'))
+                                    <li>
+                                        <a href="{{ route('sale_user.validate.finance.index') }}">
+                                            <span>Validate finances</span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->hasAnyPermission('validate_users'))
+                                    <li>
+                                        <a href="{{ route('sale_user.validate.index') }}">
+                                            <span>Validate Users</span>
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+
+
 
                 </ul>
                 <p class="menu-label">About</p>
                 <ul class="menu-list">
-                    <li>
+                    {{-- <li>
                         <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank"
                             class="has-icon">
                             <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
                             <span class="menu-item-label">Premium Demo</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
+                        <a href="https://api.whatsapp.com/send?phone=51924912297&text=Hola%20%2C%20Tengo%20un%20problema%20con%20la%20plataforma%20Área%20Usuarios.%20"
+                            class="has-icon" target="_blank">
                             <span class="icon"><i class="mdi mdi-help-circle"></i></span>
                             <span class="menu-item-label">About</span>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="https://github.com/justboil/admin-one-tailwind" class="has-icon">
                             <span class="icon"><i class="mdi mdi-github-circle"></i></span>
                             <span class="menu-item-label">GitHub</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </aside>
@@ -215,7 +312,7 @@
             {{ $slot }}
         </section>
 
-        <footer class="footer">
+        <footer class="footer ">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
                 <div class="flex items-center justify-start space-x-3">
                     <div>

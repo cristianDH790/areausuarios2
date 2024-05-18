@@ -2,15 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\type_certificate;
-use App\Models\type_service;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\type_service;
 use Illuminate\Database\Seeder;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\type_certificate;
 use Spatie\Permission\Contracts\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
+
     /**
      * Seed the application's database.
      */
@@ -22,8 +24,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(RoleSeeder::class);
 
+        $this->call(RoleSeeder::class);
         User::create([
             'name' => 'cristian',
             'email' => 'admin@admin.com',
@@ -35,32 +37,25 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456789'),
         ])->assignRole('admin');
         User::create([
-            'name' => 'luis',
-            'email' => 'luis@admin.com',
-            'last_name' => 'de la cruz huarancca',
-            'document' => '73042633',
+            'name' => 'pepe',
+            'email' => 'pepe@gmail.com',
+            'last_name' => 'vera cruz',
+            'document' => '73052634',
             'phone' => '987654321',
-            'code' => 'AD-73042633',
+            'code' => 'AD-73052634',
+            'status' => 'active',
             'password' => bcrypt('123456789'),
-        ])->assignRole('admin');
+        ])->assignRole('seller');
         User::create([
-            'name' => 'wilder',
-            'email' => 'wilder@admin.com',
+            'name' => 'antony',
+            'email' => 'antony@gmail.com',
             'last_name' => 'de la cruz huarancca',
-            'document' => '73042632',
+            'document' => '73042624',
             'phone' => '987654321',
-            'code' => 'AD-73042632',
+            'code' => 'AD-73042624',
+            'status' => 'active',
             'password' => bcrypt('123456789'),
-        ])->assignRole('admin');
-        User::create([
-            'name' => 'jorge',
-            'email' => 'jorge@admin.com',
-            'last_name' => 'de la cruz huarancca',
-            'document' => '73042631',
-            'phone' => '987654321',
-            'code' => 'AD-73042638',
-            'password' => bcrypt('123456789'),
-        ])->assignRole('admin');
+        ])->assignRole('validator');
         User::create([
             'name' => 'wilder',
             'email' => 'luisito_619_@hotmail.com',

@@ -1,14 +1,6 @@
 "use strict";
 
-var randomChartData = function randomChartData(n) {
-  var data = [];
 
-  for (var i = 0; i < n; i++) {
-    data.push(Math.round(Math.random() * 200));
-  }
-
-  return data;
-};
 
 var chartColors = {
   "default": {

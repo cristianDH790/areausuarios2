@@ -1,5 +1,6 @@
 <?php
 
+
 use Laravel\Fortify\Features;
 
 return [
@@ -143,7 +144,6 @@ return [
     | these features or you can even remove all of these if you need to.
     |
     */
-
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
@@ -153,8 +153,11 @@ return [
         Features::twoFactorAuthentication([
             'confirm' => true,
             'confirmPassword' => true,
-            // 'window' => 0,
+            'window' => 0,
         ]),
+
     ],
+
+
 
 ];
