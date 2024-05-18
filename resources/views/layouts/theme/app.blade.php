@@ -191,7 +191,7 @@
                         </li>
 
                     @endif
-                    @if (Auth::user()->hasAnyPermission('type_certicates', 'certicates'))
+                    @if (Auth::user()->hasAnyPermission('type_certificates', 'certificates'))
                         <li>
                             <a class="dropdown">
                                 <span class="icon"><i class="mdi mdi-view-list"></i></span>
