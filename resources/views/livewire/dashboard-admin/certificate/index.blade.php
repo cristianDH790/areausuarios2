@@ -60,6 +60,11 @@
                                         <td data-label="Broadcast">{{ $certificate->broadcast_date }}</td>
                                         <td class="actions-cell">
                                             <div class="buttons right nowrap space-x-1">
+                                                <x-button class="px-1 py-1" color="gray" secondary="800"
+                                                    primary="600" title="Vincular servicios y certificados"
+                                                    wire:click="vinculacion({{ $certificate->id }})">
+                                                    <span class="icon"><i class="mdi mdi-link"></i></span>
+                                                </x-button>
                                                 <x-button class=" px-1 py-1"
                                                     href="{{ route('certificate.certificate-edit.index', $certificate->id) }}"
                                                     color="indigo" secondary="800" primary="600" title="edit">

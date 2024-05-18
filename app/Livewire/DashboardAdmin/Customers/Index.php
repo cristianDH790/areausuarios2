@@ -61,11 +61,29 @@ class Index extends Component
 
     public function delete($user_id)
     {
+        // // Cargar el usuario existente que deseas eliminar
+        // $user = User::findOrFail($user_id);
+
+        // // Eliminar el usuario de la base de datos
+        // $user->delete();
+
+
         // Cargar el usuario existente que deseas eliminar
         $user = User::findOrFail($user_id);
 
+        // Eliminar las ventas y los detalles de ventas del usuario
+        foreach ($user->sales as $sale) {
+            // Eliminar todos los detalles de la venta
+            $sale->saleDetails()->delete();
+
+            // Eliminar la venta
+            $sale->delete();
+        }
+
         // Eliminar el usuario de la base de datos
         $user->delete();
+
+
 
         // Mostrar un mensaje de alerta
         $this->flash('success', 'Customer deleted successfully!');

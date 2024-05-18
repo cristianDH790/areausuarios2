@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('certificate_firms', function (Blueprint $table) {
+        Schema::create('certificate_firm', function (Blueprint $table) {
             $table->foreignId('certificate_id')->nullable()->constrained('certificates', 'id')->onDelete('set null');
             $table->foreignId('firm_id')->nullable()->constrained('firms', 'id')->onDelete('set null');
         });

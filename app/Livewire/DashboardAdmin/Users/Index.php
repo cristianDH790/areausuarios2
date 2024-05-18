@@ -20,6 +20,10 @@ class Index extends Component
     public $last_name;
     public $phone;
     public $password;
+    public $role;
+
+
+
 
 
     protected $rules = [
@@ -30,6 +34,7 @@ class Index extends Component
         'last_name' => 'required',
         'phone' => '',
         'password' => 'required',
+        'role' => 'required',
     ];
 
     protected $messages = [
@@ -39,6 +44,7 @@ class Index extends Component
         'email.email' => 'email field must be a valid email.',
         'lastname.required' => 'The lastname field is required.',
         'password.required' => 'The password field is required.',
+        'role.required' => 'The role field is required.',
     ];
 
 
@@ -46,7 +52,10 @@ class Index extends Component
     {
         // Cargar el usuario existente que deseas actualizar
         $user = User::findOrFail($userId);
-
+        if ($user->email == "admin@admin.com") {
+            $this->flash('error', 'No puedes editar este usuario!');
+            return redirect()->route('user.index');
+        }
         // Modificar el campo 'status' al valor contrario al actual
         $user->status = ($status === 'active') ? 'inactive' : 'active';
 
@@ -63,7 +72,10 @@ class Index extends Component
     {
         // Cargar el usuario existente que deseas eliminar
         $user = User::findOrFail($user_id);
-
+        if ($user->email == "admin@admin.com") {
+            $this->flash('error', 'No puedes eliminar este usuario!');
+            return redirect()->route('user.index');
+        }
         // Eliminar el usuario de la base de datos
         $user->delete();
 
@@ -90,7 +102,8 @@ class Index extends Component
             $user->code = "AD-" . $this->document;
             $user->password = bcrypt($this->password);
             $user->save();
-            $user->assignRole('admin');
+
+            $user->assignRole($this->role);
 
             $this->reset(['name', 'document', 'email', 'last_name', 'phone', 'password']);
 
@@ -111,20 +124,24 @@ class Index extends Component
 
 
         // Dentro de tu método donde estás obteniendo la lista de usuarios
-        $adminRole = Role::where('name', 'admin')->first();
+        $customerRole = Role::where('name', 'customer')->first();
 
-        $users = User::whereHas('roles', function ($query) use ($adminRole) {
-            $query->where('role_id', $adminRole->id);
+        $users = User::whereHas('roles', function ($query) use ($customerRole) {
+            $query->where('role_id', '!=', $customerRole->id);
         })
             ->where(function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%')
+                $query->where(
+                    'name',
+                    'like',
+                    '%' . $this->search . '%'
+                )
                     ->orWhere('document', 'like', '%' . $this->search . '%')
                     ->orWhere('email', 'like', '%' . $this->search . '%')
                     ->orWhere('status', 'like', '' . $this->search . '%');
             })
-            ->with('roles') // Cargar la relación roles de cada usuario
+            ->with('roles')
             ->paginate(10);
-
-        return view('livewire.dashboard-admin.users.index', compact('users'));
+        $roles = Role::where('name', '!=', 'customer')->get();
+        return view('livewire.dashboard-admin.users.index', compact('users', 'roles'));
     }
 }

@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Certificate::class);
     }
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

@@ -1,10 +1,33 @@
   <x-guest-layout>
+
       <x-authentication-card>
+
+
+
           <x-slot name="logo">
               <x-authentication-card-logo />
           </x-slot>
 
-          <x-validation-errors class="mb-4" />
+          <x-slot name="mensajes" class="w-full">
+              @foreach ($errors->all() as $error)
+                  @if ($errors->has('alerta'))
+                      <div class="bg-yellow-500 w-full px-2 py-5 rounded-md">
+                          <p class="text-white text-base font-semibold">{{ $error }}</p>
+                      </div>
+                  @else
+                      <div class="bg-red-500 w-full px-2 py-5 rounded-md">
+                          <p class="text-white text-base font-semibold">{{ $error }}</p>
+                      </div>
+                  @endif
+              @endforeach
+          </x-slot>
+
+          {{-- <x-validation-errors class="mb-4" /> --}}
+
+
+
+
+
 
           @if (session('status'))
               <div class="mb-4 font-medium text-sm text-green-600">

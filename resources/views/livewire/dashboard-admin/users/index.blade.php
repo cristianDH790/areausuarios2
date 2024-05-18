@@ -33,6 +33,7 @@
                             <th>Full Name</th>
                             <th>Document</th>
                             <th>Email</th>
+                            <th>Rol</th>
                             <th>Status</th>
                             <th>Accion</th>
                         </tr>
@@ -63,6 +64,7 @@
                                     <td data-label="Name">{{ $user->name }} {{ $user->last_name }}</td>
                                     <td data-label="Document">{{ $user->document }}</td>
                                     <td data-label="Email">{{ $user->email }}</td>
+                                    <td data-label="role">{{ $user->roles->first()->name }}</td>
                                     <td data-label="Estatus">
                                         <div class="flex items-center ">
                                             <div
@@ -276,10 +278,26 @@
                                 </div>
                                 <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                     <div class="w-full">
-                                        <x-label>Email:</x-label>
-                                        <x-input type="email" class="border-gray-50 w-full" required
-                                            placeholder="Email" wire:model="email" />
-                                        @error('email')
+                                        <div class="w-full">
+                                            <x-label>Email:</x-label>
+                                            <x-input type="email" class="border-gray-50 w-full" required
+                                                placeholder="Email" wire:model="email" />
+                                            @error('email')
+                                                <span class="text-red-600">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                    <div class="w-full">
+                                        <x-label>Rol:</x-label>
+                                        <x-select wire:model="role" class="border-gray-50 w-full py-2 px-4" required>
+                                            <option value="">Select a role</option>
+                                            @foreach ($roles as $role)
+                                                <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                            @endforeach
+                                        </x-select>
+                                        @error('role')
                                             <span class="text-red-600">{{ $message }}</span>
                                         @enderror
                                     </div>
