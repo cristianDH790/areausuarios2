@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('hours');
             $table->text('image')->nullable();
             $table->text('description')->nullable();
+            $table->text('link_brochure')->nullable();
+            $table->text('link_video')->nullable();
             $table->timestamps();
         });
     }

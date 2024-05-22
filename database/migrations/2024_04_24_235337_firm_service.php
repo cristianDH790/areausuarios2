@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exhibitor_certificate', function (Blueprint $table) {
-            $table->foreignId('exhibitor_id')->nullable()->constrained('exhibitors', 'id')->onDelete('set null');
-            $table->foreignId('certificate_id')->nullable()->constrained('certificates', 'id')->onDelete('set null');
+        Schema::create('firm_service', function (Blueprint $table) {
+            $table->foreignId('service_id')->nullable()->constrained('services', 'id')->onDelete('cascade');
+            $table->foreignId('firm_id')->nullable()->constrained('firms', 'id')->onDelete('cascade');
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('exhibitor_certificates');
+        Schema::dropIfExists('firm_service');
     }
 };

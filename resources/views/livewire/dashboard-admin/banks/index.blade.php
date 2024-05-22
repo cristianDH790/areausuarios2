@@ -157,7 +157,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                
+
                                 </div>
                                 <x-slot name="buttons">
                                     <div class="space-x-2">

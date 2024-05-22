@@ -21,6 +21,7 @@ class Index extends Component
     public $document;
 
 
+
     public function save()
     {
         $this->validate([

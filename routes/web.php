@@ -1,27 +1,33 @@
 <?php
 
+use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardAdmin\BankController;
 use App\Http\Controllers\DashboardAdmin\FirmController;
 use App\Http\Controllers\DashboardAdmin\RoleController;
 use App\Http\Controllers\DashboardAdmin\UsersController;
+
+
 use App\Http\Controllers\DashboardAdmin\ModuleController;
-
-
 use App\Http\Controllers\DashboardAdmin\ServiceController;
 use App\Http\Controllers\DashboardAdmin\CustomerController;
 use App\Http\Controllers\DashboardAdmin\SaleUserController;
 use App\Http\Controllers\DashboardAdmin\ExhibitorsController;
 use App\Http\Controllers\DashboardAdmin\CertificateController;
 use App\Http\Controllers\DashboardAdmin\PermissionsController;
-use App\Http\Controllers\DashboardAdmin\TypeServiceController;
 
+use App\Http\Controllers\DashboardAdmin\TypeServiceController;
 use App\Http\Controllers\presentation\HomePresentationController;
 use App\Http\Controllers\DashboardAdmin\TypeCertificateController;
 use App\Http\Controllers\DashboardAdmin\SaleUserValidateController;
-
+use App\Http\Controllers\DashboardCustomer\HomeCustomerController;
+use App\Http\Controllers\DashboardCustomer\Services\MyServiceCustomerController;
+use App\Http\Controllers\DashboardCustomer\Services\serviceController as ServicesServiceController;
+use App\Http\Controllers\DashboardCustomer\Services\serviceCustomerController;
+use App\Models\service;
+use App\Http\Livewire\DashboardCustomer\Home\Index;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +45,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
@@ -54,11 +61,12 @@ Route::get('/', function () {
 
 Route::middleware([
     'auth:sanctum',
+    'can:admin_admins',
     config('jetstream.auth_session'),
     'verified',
+
 ])->group(function () {
     route::get('/home', [HomeController::class, 'index'])->name('home.index');
-
     Route::group(['middleware' => ['can:users']], function () {
         route::get('/users', [UsersController::class, 'index'])->name('user.index');
     });
@@ -124,7 +132,23 @@ Route::middleware([
     });
 });
 
-
+Route::middleware([
+    'auth:sanctum',
+    'can:admin_customers',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(
+    function () {
+        route::get('/home', [HomeController::class, 'index'])->name('home.index');
+        // route::get('/home', [HomeController::class, 'index'])->name('home.index');
+        route::get('/services', [serviceCustomerController::class, 'index'])->name('service.customer.index');
+        // route::get('/services/{slug}', [serviceCustomerController::class, 'view'])->name('service.customer.view');
+        route::get('/services/psicologia', [serviceCustomerController::class, 'view'])->name('service.customer.view');
+        route::get('/my_services', [MyServiceCustomerController::class, 'index'])->name('my.service.customer.index');
+        route::get('/my_services/psicologia', [MyServiceCustomerController::class, 'view'])->name('my.service.customer.view');
+        route::get('/my_services/psicologia/video', [MyServiceCustomerController::class, 'video'])->name('my.service.customer.video');
+    }
+);
 
 //rutas de presentacion
 Route::middleware([])->group(function () {

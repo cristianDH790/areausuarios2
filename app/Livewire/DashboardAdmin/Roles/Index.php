@@ -23,7 +23,7 @@ class Index extends Component
     public function delete($rolid)
     {
         $role = Role::find($rolid);
-        if ($role->guard_name == 'sanctum') {
+        if ($role->name == 'admin' ||  $role->name == 'customer') {
             $this->flash('error', 'No puedes eliminar este rol.');
             return redirect()->route('role.index');
         }

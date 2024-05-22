@@ -20,14 +20,6 @@ class certificate extends Model
     {
         return $this->belongsTo(Type_Certificate::class);
     }
-    public function firms()
-    {
-        return $this->belongsToMany(firm::class);
-    }
-    public function exhibitors()
-    {
-        return $this->belongsToMany(Exhibitor::class);
-    }
     public function users()
     {
         return $this->belongsToMany(User::class);

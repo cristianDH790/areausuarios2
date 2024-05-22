@@ -6,6 +6,7 @@ use App\Models\module;
 use Livewire\Component;
 use App\Models\certificate;
 use App\Models\material;
+use App\Models\video;
 use Illuminate\Validation\ValidationException;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
@@ -22,6 +23,11 @@ class Edit extends Component
     public $url_material;
     public $description_material;
 
+    public $title_video;
+    public $url_video;
+    public $description_video;
+
+    public $video;
 
 
     public function mount($certificate, $module)
@@ -31,6 +37,44 @@ class Edit extends Component
         $this->materials = material::where('module_id', $module->id)->get();
         $this->order = $module->order;
         $this->title = $module->title;
+
+        $this->video = video::where('module_id', $this->module->id)->first();
+        if ($this->video == null) {
+            $this->title_video = '';
+            $this->url_video = '';
+            $this->description_video = '';
+        } else {
+            $this->title_video = $this->video->title;
+            $this->url_video = $this->video->url;
+            $this->description_video = $this->video->description;
+        }
+    }
+    public function edit_module_video()
+    {
+        $this->validate([
+            'title_video' => 'required|string',
+            'url_video' => 'required',
+            'description_video' => 'max:255',
+        ]);
+        $this->video = video::where('module_id', $this->module->id)->first();
+        if ($this->video == null) {
+            $new_video = new video();
+            $new_video->module_id = $this->module->id;
+            $new_video->title = $this->title_video;
+            $new_video->url = $this->url_video;
+            $new_video->description = $this->description_video;
+            $new_video->save();
+        } else {
+            $this->video->title = $this->title_video;
+            $this->video->url = $this->url_video;
+            $this->video->description = $this->description_video;
+            $this->video->update();
+        }
+        $this->reset('title_video', 'url_video', 'description_video');
+
+        $this->flash('success', 'Video guardado correctamente');
+
+        return redirect()->route('certificate.module.edit', [$this->certificate, $this->module]);
     }
     public function edit_module()
     {

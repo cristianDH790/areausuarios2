@@ -77,21 +77,21 @@ class Index extends Component
         $subtopic = sub_topic::findOrFail($id);
         $subtopic->delete();
         $this->flash('success', 'sub Topic deleted successfully!');
-        return redirect()->route('certificate.module.edit', $this->certificate->id);
+        return redirect()->route('certificate.module.index', $this->certificate->id);
     }
     public function delete_topic($id)
     {
         $topic = topic::findOrFail($id);
         $topic->delete();
         $this->flash('success', 'Topic deleted successfully!');
-        return redirect()->route('certificate.module.edit', $this->certificate->id);
+        return redirect()->route('certificate.module.index', $this->certificate->id);
     }
     public function delete_module($id)
     {
         $module = Module::findOrFail($id);
         $module->delete();
         $this->flash('success', 'Module deleted successfully!');
-        return redirect()->route('certificate.module.edit', $this->certificate->id);
+        return redirect()->route('certificate.module.index', $this->certificate->id);
     }
     public function edit_subtopic($id)
     {
@@ -136,7 +136,7 @@ class Index extends Component
             }
 
 
-            return redirect()->route('certificate.module.edit', $this->certificate->id);
+            return redirect()->route('certificate.module.index', $this->certificate->id);
         } catch (ValidationException $e) {
             // Capturar errores de validación
             $validationErrors = $e->validator->errors()->all();
@@ -186,7 +186,7 @@ class Index extends Component
             }
 
 
-            return redirect()->route('certificate.module.edit', $this->certificate->id);
+            return redirect()->route('certificate.module.index', $this->certificate->id);
         } catch (ValidationException $e) {
             // Capturar errores de validación
             $validationErrors = $e->validator->errors()->all();
@@ -236,7 +236,7 @@ class Index extends Component
             }
 
 
-            return redirect()->route('certificate.module.edit', $this->certificate->id);
+            return redirect()->route('certificate.module.index', $this->certificate->id);
         } catch (ValidationException $e) {
             // Capturar errores de validación
             $validationErrors = $e->validator->errors()->all();
@@ -259,7 +259,7 @@ class Index extends Component
             $subtopic->save();
 
             $this->flash('success', 'sub topic added successfully!');
-            return redirect()->route('certificate.module.edit', $this->certificate->id);
+            return redirect()->route('certificate.module.index', $this->certificate->id);
         } catch (ValidationException $e) {
             $validationErrors = $e->validator->errors()->all();
             $this->alert('error', implode('<br>', $validationErrors));
@@ -280,7 +280,7 @@ class Index extends Component
             $topic->save();
 
             $this->flash('success', 'Topic added successfully!');
-            return redirect()->route('certificate.module.edit', $this->certificate->id);
+            return redirect()->route('certificate.module.index', $this->certificate->id);
         } catch (ValidationException $e) {
             $validationErrors = $e->validator->errors()->all();
             $this->alert('error', implode('<br>', $validationErrors));
@@ -302,7 +302,7 @@ class Index extends Component
             $module->save();
 
             $this->flash('success', 'Module added successfully!');
-            return redirect()->route('certificate.module.edit', $this->certificate->id);
+            return redirect()->route('certificate.module.edit', ['id' => $this->certificate->id, 'module' => $module->id]);
         } catch (ValidationException $e) {
             $validationErrors = $e->validator->errors()->all();
             $this->alert('error', implode('<br>', $validationErrors));

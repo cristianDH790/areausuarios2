@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Vimeo\Laravel\VimeoServiceProvider::class,
 
 
     ],
@@ -213,6 +214,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Vimeo' => Vimeo\Laravel\Facades\Vimeo::class,
 
     ])->toArray(),
 

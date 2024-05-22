@@ -39,7 +39,7 @@
                     @enderror
                 </div>
                 <div class="w-full">
-                    <x-label>Url video:</x-label>
+                    <x-label>codigo video:</x-label>
                     <x-input type="text" class="border-gray-50 w-full" required placeholder="url video"
                         wire:model="url_video" />
                     @error('url_video')
