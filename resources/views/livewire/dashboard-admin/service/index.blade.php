@@ -130,23 +130,18 @@
                                                     <x-input type="text" class="border-gray-50 text-gray-500 w-full"
                                                         disabled readonly value="{{ $service->name }}" />
                                                 </div>
+
+                                            </div>
+                                            <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                                 <div class="w-full">
                                                     <x-label>type service:</x-label>
                                                     <x-input type="text" class="border-gray-50 text-gray-500 w-full"
                                                         disabled readonly value="{{ $service->type_service->name }}" />
                                                 </div>
-                                            </div>
-                                            <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                                <div class="w-full">
-                                                    <x-label>Slug:</x-label>
-                                                    <x-input type="text" class="border-gray-50 text-gray-500 w-full"
-                                                        disabled readonly value="{{ $service->slug }}" />
-                                                </div>
                                                 <div class="w-full">
                                                     <x-label>Price:</x-label>
-                                                    <x-input type="text"
-                                                        class="border-gray-50 text-gray-500 w-full" disabled readonly
-                                                        value="{{ $service->price }}" />
+                                                    <x-input type="text" class="border-gray-50 text-gray-500 w-full"
+                                                        disabled readonly value="{{ $service->price }}" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap md:flex-nowrap space-x-2">
@@ -234,6 +229,9 @@
                                                 <span class="text-red-600">{{ $message }}</span>
                                             @enderror
                                         </div>
+
+                                    </div>
+                                    <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                         <div class="w-full">
                                             <x-label>type service:</x-label>
                                             <select class="border-gray-50 py-2 px-3 w-full" required
@@ -248,16 +246,6 @@
 
 
                                             @error('type_service_id')
-                                                <span class="text-red-600">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-wrap md:flex-nowrap space-x-2">
-                                        <div class="w-full">
-                                            <x-label>Slug:</x-label>
-                                            <x-input type="text" class="border-gray-50 w-full" required
-                                                placeholder="Slug" wire:model="slug" />
-                                            @error('slug')
                                                 <span class="text-red-600">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -307,6 +295,7 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    
                                     <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                         <div class="w-full">
                                             <x-label>Description little:</x-label>

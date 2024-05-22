@@ -63,6 +63,7 @@ class DatabaseSeeder extends Seeder
             'document' => '73042637',
             'phone' => '987654321',
             'code' => 'CL-73042637',
+            'status' => 'active',
             'password' => bcrypt('123456789'),
         ])->assignRole('customer');
         type_service::create([

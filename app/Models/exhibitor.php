@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class exhibitor extends Model
 {
     use HasFactory;
-    public function certificates()
+    public function services()
     {
-        return $this->belongsToMany(Certificate::class);
+        return $this->belongsToMany(service::class);
     }
 }

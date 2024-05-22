@@ -2,8 +2,10 @@
 
 namespace App\Livewire\DashboardAdmin\Service;
 
+use App\Models\firm;
 use App\Models\service;
 use Livewire\Component;
+use App\Models\exhibitor;
 use App\Models\type_service;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -28,6 +30,17 @@ class Edit extends Component
     public $hours;
     public $price_discount;
     public $code_service;
+
+    public $exhibitors;
+    public $firms;
+    public $serviceexhibitor;
+    public $servicefirm;
+
+    public $link_brochure;
+    public $link_video;
+
+
+
     protected $rules = [
         'name' => 'required|min:6',
         'start_date' => 'required',
@@ -36,7 +49,8 @@ class Edit extends Component
         'description' => '',
         'little_description' => '',
         'price' => 'required',
-        'slug' => 'required',
+        'serviceexhibitor.*'  => 'boolean',
+        'servicefirm.*'  => 'boolean',
         'hours' => 'required',
         'price_discount' => 'required',
         'file' => 'nullable|mimes:jpg,jpeg,png,bmp|max:25000',
@@ -50,7 +64,7 @@ class Edit extends Component
         'end_date.required' => 'El campo fecha de fin es requerido',
         'type_service_id.required' => 'El campo tipo de servicio es requerido',
         'price.required' => 'El campo precio es requerido',
-        'slug.required' => 'El campo slug es requerido',
+
         'hours.required' => 'El campo horas es requerido',
         'price_discount.required' => 'El campo precio de descuento es requerido',
         'file.mimes' => 'El archivo debe ser una imagen',
@@ -74,6 +88,24 @@ class Edit extends Component
         $this->price_discount = $this->service->price_discount;
         $this->pathfile = $this->service->image;
         $this->code_service = $this->service->code_service;
+        $this->link_brochure = $this->service->link_brochure;
+        $this->link_video = $this->service->link_video;
+
+
+
+        $this->firms = firm::get();
+        $this->exhibitors = exhibitor::get();
+
+        //$this->permissions = Permission::get();
+
+        $currentserviceexhibitors = $this->service->exhibitors->pluck('id')->toArray();
+        foreach ($this->exhibitors as $exhibitor) {
+            $this->serviceexhibitor[$exhibitor->id] = in_array($exhibitor->id, $currentserviceexhibitors);
+        }
+        $currentservicefirms = $this->service->firms->pluck('id')->toArray();
+        foreach ($this->firms as $firm) {
+            $this->servicefirm[$firm->id] = in_array($firm->id, $currentservicefirms);
+        }
     }
     public function edit()
     {
@@ -85,9 +117,18 @@ class Edit extends Component
         $this->service->description = $this->description;
         $this->service->little_description = $this->little_description;
         $this->service->price = $this->price;
-        $this->service->slug = $this->slug;
+        $this->service->slug = $this->name;
         $this->service->hours = $this->hours;
         $this->service->price_discount = $this->price_discount;
+        $this->service->link_brochure = $this->link_brochure;
+        $this->service->link_video = $this->link_video;
+        if ($this->serviceexhibitor) {
+            $this->service->exhibitors()->sync(array_keys(array_filter($this->serviceexhibitor)));
+        }
+        if ($this->servicefirm) {
+            $this->service->firms()->sync(array_keys(array_filter($this->servicefirm)));
+        }
+
 
         if ($this->file && $this->file->isValid()) {
 
@@ -101,7 +142,7 @@ class Edit extends Component
         }
 
 
-        $this->service->update();
+        $this->service->save();
         $this->reset('name', 'start_date', 'end_date', 'type_service_id', 'description', 'little_description', 'price', 'slug', 'hours', 'price_discount', 'file');
         $this->flash('success', 'service updated successfully!');
         return redirect()->route('service.index');

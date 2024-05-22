@@ -199,14 +199,14 @@
                                 <span class="icon"><i class="mdi mdi-plus"></i></span>
                             </a>
                             <ul>
-                                @if (Auth::user()->hasAnyPermission('type_certicates'))
+                                @if (Auth::user()->hasAnyPermission('type_certificates'))
                                     <li>
                                         <a href="{{ route('type_certicate.index') }}">
                                             <span>Type certificate</span>
                                         </a>
                                     </li>
                                 @endif
-                                @if (Auth::user()->hasAnyPermission('certicates'))
+                                @if (Auth::user()->hasAnyPermission('certificates'))
                                     <li>
                                         <a href="{{ route('certificate.index') }}">
                                             <span>Certificate</span>

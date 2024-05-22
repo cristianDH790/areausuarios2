@@ -2,6 +2,8 @@
 
 namespace App\Livewire\DashboardAdmin\Service;
 
+use App\Models\exhibitor;
+use App\Models\firm;
 use App\Models\Service;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -33,6 +35,11 @@ class Index extends Component
     public $hours;
     public $price_discount;
 
+   
+
+
+
+
 
     protected $rules = [
         'name' => 'required|min:6|unique:services,name',
@@ -42,9 +49,9 @@ class Index extends Component
         'description' => '',
         'little_description' => '',
         'price' => 'required',
-        'slug' => 'required|unique:services,slug',
         'hours' => 'required',
         'price_discount' => 'required',
+
     ];
 
     protected $message = [
@@ -55,8 +62,6 @@ class Index extends Component
         'end_date.required' => 'El campo fecha de fin es requerido',
         'type_service_id.required' => 'El campo tipo de servicio es requerido',
         'price.required' => 'El campo precio es requerido',
-        'slug.required' => 'El campo slug es requerido',
-        'slug.unique' => 'El campo slug ya existe',
         'hours.required' => 'El campo horas es requerido',
         'price_discount.required' => 'El campo precio de descuento es requerido',
     ];
@@ -84,15 +89,22 @@ class Index extends Component
             $service->description = $this->description;
             $service->little_description = $this->little_description;
             $service->price = $this->price;
-            $service->slug = Str::slug($this->slug);
+            $service->slug = Str::slug($this->name);
             $service->hours = $this->hours;
             $service->price_discount = $this->price_discount;
             $service->code_service = 'S-' . rand(1000, 9999);
+
+
             $service->save();
-            $this->reset('name', 'start_date', 'end_date', 'type_service_id', 'description', 'little_description', 'price', 'slug', 'hours', 'price_discount');
+
+
+
+
+
+            $this->reset('name', 'start_date', 'end_date', 'type_service_id', 'description', 'little_description', 'price', 'hours', 'price_discount');
 
             $this->flash('success',  'service added successfully!');
-            return redirect()->route('service.index');
+            return redirect()->route('service.edit', $service->slug);
         } catch (ValidationException $e) {
 
             $validationErrors = $e->validator->errors()->all();
@@ -109,6 +121,7 @@ class Index extends Component
                 ->orWhere('code_service', 'like', '%' . $this->search . '%')
                 ->orWhere('start_date', 'like', '%' . $this->search . '%');
         })->paginate(10);
+
 
 
 

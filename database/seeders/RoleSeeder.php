@@ -20,6 +20,8 @@ class RoleSeeder extends Seeder
         $role3 = Role::create(['name' => 'validator']);
         $role4 = Role::create(['name' => 'customer']);
         $this->createPermissions();
+        $role1->givePermissionTo($this->permissions['admin_admins']);
+        $role1->givePermissionTo($this->permissions['admin_customers']);
         $role1->givePermissionTo($this->permissions['roles']);
         $role1->givePermissionTo($this->permissions['permissions']);
         $role1->givePermissionTo($this->permissions['users']);
@@ -43,10 +45,14 @@ class RoleSeeder extends Seeder
 
         $role3->givePermissionTo($this->permissions['validate_users']);
         $role3->givePermissionTo($this->permissions['validate_finances']);
+
+        $role4->givePermissionTo($this->permissions['admin_customers']);
     }
     private function createPermissions(): void
     {
         $this->permissions = [
+            'admin_admins'              => Permission::create(['name' => 'admin_admins']),
+            'admin_customers'              => Permission::create(['name' => 'admin_customers']),
             'roles'              => Permission::create(['name' => 'roles']),
             'permissions'  => Permission::create(['name' => 'permissions']),
             'users'        => Permission::create(['name' => 'users']),

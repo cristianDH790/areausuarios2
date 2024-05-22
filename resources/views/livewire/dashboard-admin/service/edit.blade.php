@@ -95,6 +95,28 @@
                     @enderror
                 </div>
             </div>
+            <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                <div class="w-full space-y-1">
+                    <x-label>Expositores:</x-label>
+                    @foreach ($exhibitors as $exhibitor)
+                        <div>
+                            <x-form.checkbox :label="$exhibitor->name . ' ' . $exhibitor->last_name" id="e-{{ $exhibitor->id }}"
+                                wire:model="serviceexhibitor.{{ $exhibitor->id }}"></x-form.checkbox>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                <div class="w-full space-y-1">
+                    <x-label>Firmas:</x-label>
+                    @foreach ($firms as $firm)
+                        <div>
+                            <x-form.checkbox :label="$firm->alias" id="f-{{ $firm->id }}"
+                                wire:model="servicefirm.{{ $firm->id }}"></x-form.checkbox>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
             <div class="flex flex-wrap md:flex-nowrap space-x-4">
                 <div class="w-full">
                     <x-label>Description little:</x-label>
@@ -111,6 +133,28 @@
                     <x-textarea class="border-gray-50 w-full" placeholder="Description"
                         wire:model="description"></x-textarea>
                     @error('description')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+
+            </div>
+            <div class="flex flex-wrap md:flex-nowrap space-x-4">
+                <div class="w-full">
+                    <x-label>Link brochure(opcional):</x-label>
+                    <x-input type="text" class="border-gray-50 w-full" required placeholder="Link Brochure"
+                        wire:model="link_brochure" />
+                    @error('link_brochure')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+
+            </div>
+            <div class="flex flex-wrap md:flex-nowrap space-x-4">
+                <div class="w-full">
+                    <x-label>Link Video(opcional):</x-label>
+                    <x-input type="text" class="border-gray-50 w-full" required placeholder="Link Video"
+                        wire:model="link_video" />
+                    @error('link_video')
                         <span class="text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
@@ -150,7 +194,8 @@
 
         </div>
         <div class="flex justify-end">
-            <x-button color="blue" wire:click="edit" secondary="800" primary="500" class="px-4 py-2">Save</x-button>
+            <x-button color="blue" wire:click="edit" secondary="800" primary="500"
+                class="px-4 py-2">Save</x-button>
         </div>
 
     </div>

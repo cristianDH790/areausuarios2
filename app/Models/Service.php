@@ -16,4 +16,12 @@ class service extends Model
     {
         return $this->hasOne(Certificate::class);
     }
+    public function firms()
+    {
+        return $this->belongsToMany(firm::class);
+    }
+    public function exhibitors()
+    {
+        return $this->belongsToMany(Exhibitor::class);
+    }
 }
