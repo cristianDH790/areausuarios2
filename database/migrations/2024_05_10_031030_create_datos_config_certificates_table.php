@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('datos_config_certificates', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('certificate_id')->nullable()->constrained('certificates')->onDelete('set null')    ;
+            $table->unsignedInteger('certificate_id')->nullable()->constrained('certificates')->onDelete('set null');
             $table->string('key');
             $table->string('value')->nullable();
             $table->integer('x')->nullable()->default(0);
             $table->integer('y')->nullable()->default(0);
             $table->string('align')->nullable();
-            $table->string('type_typography')->nullable()->default('font-normal');
+            $table->string('type_typography')->nullable()->default('ARIAL');
+            $table->string('type_typography2')->nullable()->default('ARIAL');
             $table->integer('font_size')->nullable()->default(16);
+            $table->string('color')->nullable();
             $table->boolean('painting')->nullable()->default(true);
             $table->timestamps();
         });

@@ -21,4 +21,5 @@ class CertificateController extends Controller
         $certificate = certificate::where('id', $id)->firstOrFail();
         return view('dashboardAdmin.certificate.edit', compact('certificate'));
     }
+    
 }

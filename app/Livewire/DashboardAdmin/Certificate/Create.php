@@ -76,8 +76,8 @@ class Create extends Component
         $this->photo_front->storeAs('public/certificates', $fileNamefront);
         $this->photo_back->storeAs('public/certificates', $fileNameback);
 
-        $certificate->photo_front =  $fileNamefront;
-        $certificate->photo_back =  $fileNameback;
+        $certificate->photo_front =  'certificates/' . $fileNamefront;
+        $certificate->photo_back = 'certificates/' . $fileNameback;
 
         $certificate->save();
 

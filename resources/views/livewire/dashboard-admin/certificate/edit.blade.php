@@ -86,6 +86,7 @@
                         @enderror
                     @else
                         <x-label>Old Image</x-label>
+
                         <img src="{{ asset('storage/' . $pathfile) }}" alt="image" class="w-75 h-auto">
                         <x-label>Image Certificate Front:</x-label>
                         <x-file.drag-and-drop-single formats="pdf, jpeg, jpg, bmp, png" max_size="25Mb"
@@ -118,7 +119,7 @@
                         @enderror
                     @else
                         <x-label>Old Image</x-label>
-                        <img src="{{ asset('storage/' . $pathfile2) }}" alt="image" class="w-75 h-auto">
+                        <img src="{{ asset('storage/' . $pathfile) }}" alt="image" class="w-75 h-auto">
                         <x-label>Image Certificate Back:</x-label>
                         <x-file.drag-and-drop-single formats="pdf, jpeg, jpg, bmp, png" max_size="25Mb"
                             accept="image/jpeg,image/bmp,image/png" model=photo_back>

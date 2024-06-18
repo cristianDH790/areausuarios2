@@ -6,6 +6,9 @@ use App\Models\firm;
 use App\Models\service;
 use Livewire\Component;
 use App\Models\exhibitor;
+
+use Illuminate\Support\Str;
+
 use App\Models\type_service;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -117,7 +120,9 @@ class Edit extends Component
         $this->service->description = $this->description;
         $this->service->little_description = $this->little_description;
         $this->service->price = $this->price;
-        $this->service->slug = $this->name;
+
+        $this->service->slug = Str::slug($this->name);
+
         $this->service->hours = $this->hours;
         $this->service->price_discount = $this->price_discount;
         $this->service->link_brochure = $this->link_brochure;

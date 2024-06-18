@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers\DashboardCustomer\Services;
 
-use App\Http\Controllers\Controller;
+
+use App\Models\module;
+use App\Models\service;
+use App\Models\setting;
+use App\Models\certificate;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Colors\Rgb\Channels\Red;
+
 
 class MyServiceCustomerController extends Controller
 {
@@ -11,12 +18,17 @@ class MyServiceCustomerController extends Controller
     {
         return view('dashboardcustomer.my_service.index');
     }
-    public function view()
+
+    public function view($slug)
     {
-        return view('dashboardcustomer.my_service.view');
+        $service = service::where('slug', $slug)->first();
+        return view('dashboardcustomer.my_service.view', compact('service'));
     }
-    public function video()
+    public function video($slug, $module_id)
     {
-        return view('dashboardcustomer.my_service.video');
+        $service = service::where('slug', $slug)->first();
+        $module = module::where('id', $module_id)->first();
+        return view('dashboardcustomer.my_service.video', compact('service', 'module'));
+
     }
 }

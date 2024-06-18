@@ -29,4 +29,9 @@ class ModuleController extends Controller
         $certificate = certificate::where('id', $id)->firstOrFail();
         return view('dashboardAdmin.certificate.certificate_generate.certificate-edit', compact('certificate'));
     }
+    public function certificte_generate()
+    {
+        
+        return view('dashboardAdmin.certificate.certificate_generate.certificado');
+    }
 }

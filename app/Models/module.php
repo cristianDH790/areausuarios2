@@ -22,9 +22,9 @@ class module extends Model
     {
         return $this->hasMany(material::class);
     }
-    public function videos()
+    public function video()
     {
-        return $this->hasMany(video::class);
+        return $this->hasOne(video::class);
     }
     public function certificate()
     {

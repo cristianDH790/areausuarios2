@@ -37,6 +37,7 @@ class Index extends Component
     public $title_video;
     public $url_video;
     public $description;
+    public $audio;
 
 
 
@@ -62,7 +63,8 @@ class Index extends Component
             $video->module_id = $id;
             $video->title = $this->title_video;
             $video->url = $this->url_video;
-            $video->description = $this->description;
+            $video->audio = $this->audio;
+            $video->$video->description = $this->description;
             $video->save();
 
             $this->flash('success', 'video added successfully!');

@@ -119,6 +119,13 @@
                                         </a>
                                     </li>
                                 @endif
+                                {{-- @if (Auth::user()->hasAnyPermission('permissions')) --}}
+                                <li>
+                                    <a href="{{ route('settings.index') }}">
+                                        <span>Configuracion</span>
+                                    </a>
+                                </li>
+                                {{-- @endif --}}
                             </ul>
                         </li>
                     @endif
