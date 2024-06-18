@@ -5,12 +5,12 @@ namespace App\Livewire\DashboardAdmin\Exhibitor;
 use Livewire\Component;
 use App\Models\exhibitor;
 use Livewire\WithPagination;
+//use Intervention\Image\Image;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Features\SupportFileUploads\WithFileUploads;
-use App\Http\Controllers\DashboardAdmin\ExhibitorsController;
-use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Validation\ValidationException;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class Index extends Component
 {
@@ -27,6 +27,7 @@ class Index extends Component
     public $phone;
     public $document;
     public $review;
+    public $link;
 
 
     protected $rules = [
@@ -36,6 +37,7 @@ class Index extends Component
         'phone' => 'required|min:6',
         'review' => 'required|max:255',
         'document' => 'required|unique:exhibitors,document',
+
 
     ];
     protected $message = [
@@ -74,15 +76,20 @@ class Index extends Component
             $exhibitor->phone = $this->phone;
             $exhibitor->document = $this->document;
             $exhibitor->review = $this->review;
+            $exhibitor->link = $this->link;
 
             if ($this->file && $this->file->isValid()) {
+                $img = Image::make($this->file);
+                $img->resize(300, 300,);
+                $img->save('storage/exhibitor/' . $this->document . '.' . $this->file->extension());
 
-                $this->file->storeAs('public/exhibitor', $this->document . '.' . $this->file->extension());
+                //$this->file->storeAs('public/exhibitor', $this->document . '.' . $this->file->extension());
+                //$exhibitor->photo = 'exhibitor/' . $this->document . '.' . $this->file->extension();
                 $exhibitor->photo = 'exhibitor/' . $this->document . '.' . $this->file->extension();
             }
 
             $exhibitor->save();
-            $this->reset('name', 'last_name', 'prefix', 'phone', 'document', 'review',  'file', 'pathfile');
+            $this->reset('name', 'last_name', 'prefix', 'link', 'phone', 'document', 'review',  'file', 'pathfile');
 
 
             $this->flash('success', 'Exhibitor successfully created');

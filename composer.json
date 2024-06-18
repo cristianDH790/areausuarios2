@@ -9,8 +9,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "elibyy/tcpdf-laravel": "*",
+        "erusev/parsedown": "^1.7",
         "guzzlehttp/guzzle": "^7.2",
-        "intervention/image": "^3.6",
+        "intervention/image": "2.7",
         "jantinnerezo/livewire-alert": "^3.0",
         "laravel/framework": "^10.0",
         "laravel/jetstream": "^4.3",

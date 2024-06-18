@@ -49,6 +49,17 @@
             </div>
             <div class="flex flex-wrap md:flex-nowrap space-x-2">
                 <div class="w-full">
+                    <x-label>audio:</x-label>
+                    <x-input type="text" class="border-gray-50 w-full" required placeholder="url audio"
+                        wire:model="audio" />
+                    @error('audio')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                <div class="w-full">
                     <x-label>Description video:</x-label>
                     <x-textarea class="border-gray-50 w-full" required placeholder="Description video"
                         wire:model="description_video" rows="3">
@@ -147,7 +158,8 @@
                                                 <div class="buttons right nowrap space-x-1">
                                                     <x-button class=" --jb-modal px-1 py-1"
                                                         data-target="sample-modal-delete-{{ $material->id }}"
-                                                        color="red" secondary="800" primary="600" title="delete">
+                                                        color="red" secondary="800" primary="600"
+                                                        title="delete">
                                                         <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                                                     </x-button>
                                                 </div>

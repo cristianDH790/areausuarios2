@@ -170,6 +170,14 @@
                                             </div>
                                             <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                                 <div class="w-full">
+                                                    <x-label>Descargar Cv:</x-label>
+                                                    <x-button color="green" target="_blank"
+                                                        href="{{ $exhibitor->link }}" secondary="800" primary="600"
+                                                        class="px-4 py-2">Descargar</x-button>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                                <div class="w-full">
 
                                                     <x-label>Image:</x-label>
                                                     @if ($exhibitor->photo)
@@ -256,7 +264,16 @@
                                             @enderror
                                         </div>
                                     </div>
-
+                                    <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                                        <div class="w-full">
+                                            <x-label>Link CV:</x-label>
+                                            <x-input type="text" class="border-gray-50 w-full" placeholder="link"
+                                                wire:model="link" />
+                                            @error('link')
+                                                <span class="text-red-600">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="flex flex-wrap md:flex-nowrap space-x-2">
                                         <div class="w-full">
                                             <x-label>Image:</x-label>

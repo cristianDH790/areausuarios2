@@ -4,6 +4,7 @@ namespace App\Livewire\DashboardAdmin\Exhibitor;
 
 use Livewire\Component;
 use App\Models\exhibitor;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
@@ -22,6 +23,7 @@ class Edit extends Component
     public $photo;
     public $pathfile;
     public $file;
+    public $link;
 
     protected $rules = [
         'name' => 'required|min:2',
@@ -31,6 +33,7 @@ class Edit extends Component
         'review' => 'nullable|max:255',
         'document' => 'required',
         'file' => 'nullable|mimes:jpg,jpeg,png,bmp|max:25000',
+
     ];
 
     protected $message = [
@@ -57,6 +60,7 @@ class Edit extends Component
         $this->review = $this->exhibitor->review;
         //$this->photo = $this->exhibitor->photo;
         $this->pathfile = $this->exhibitor->photo;
+        $this->link = $this->exhibitor->link;
     }
     public function edit()
     {
@@ -67,7 +71,7 @@ class Edit extends Component
         $this->exhibitor->phone = $this->phone;
         $this->exhibitor->document = $this->document;
         $this->exhibitor->review = $this->review;
-
+        //$this->exhibitor->link = $this->link;
 
         if ($this->file && $this->file->isValid()) {
 
@@ -75,14 +79,17 @@ class Edit extends Component
                 Storage::delete('public/' . $this->exhibitor->photo);
             }
 
-
-            $this->file->storeAs('public/exhibitor', $this->document . '.' . $this->file->extension());
+            $img = Image::make($this->file);
+            $img->resize(300, 300,);
+            $img->save('storage/exhibitor/' . $this->document . '.' . $this->file->extension());
+            //$this->file->storeAs('public/exhibitor', $this->document . '.' . $this->file->extension());
+            //$this->exhibitor->photo = 'exhibitor/' . $this->document . '.' . $this->file->extension();
             $this->exhibitor->photo = 'exhibitor/' . $this->document . '.' . $this->file->extension();
         }
 
 
         $this->exhibitor->update();
-        $this->reset('name', 'last_name', 'prefix', 'phone', 'document', 'review', 'file', 'pathfile');
+        //$this->reset('name', 'last_name', 'prefix', 'phone', 'document', 'review', 'file', 'pathfile');
         $this->flash('success', 'Exhibitor updated successfully!');
         return redirect()->route('exhibitor.index');
     }

@@ -55,6 +55,15 @@
                     @enderror
                 </div>
             </div>
+            <div class="flex flex-wrap md:flex-nowrap space-x-2">
+                <div class="w-full">
+                    <x-label>Link CV:</x-label>
+                    <x-input type="text" class="border-gray-50 w-full" placeholder="link" wire:model="link" />
+                    @error('link')
+                        <span class="text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
             <div class="flex flex-wrap md:flex-nowrap space-x-4">
                 <div class="w-full">
                     @if ($pathfile == null)

@@ -26,6 +26,7 @@ class Edit extends Component
     public $title_video;
     public $url_video;
     public $description_video;
+    public $audio;
 
     public $video;
 
@@ -43,10 +44,12 @@ class Edit extends Component
             $this->title_video = '';
             $this->url_video = '';
             $this->description_video = '';
+            $this->audio = '';
         } else {
             $this->title_video = $this->video->title;
             $this->url_video = $this->video->url;
             $this->description_video = $this->video->description;
+            $this->audio = $this->video->audio;
         }
     }
     public function edit_module_video()
@@ -62,12 +65,15 @@ class Edit extends Component
             $new_video->module_id = $this->module->id;
             $new_video->title = $this->title_video;
             $new_video->url = $this->url_video;
+            $new_video->audio = $this->audio;
+
             $new_video->description = $this->description_video;
             $new_video->save();
         } else {
             $this->video->title = $this->title_video;
             $this->video->url = $this->url_video;
             $this->video->description = $this->description_video;
+            $this->video->audio = $this->audio;
             $this->video->update();
         }
         $this->reset('title_video', 'url_video', 'description_video');

@@ -33,21 +33,7 @@ class JetstreamServiceProvider extends ServiceProvider
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
 
-        Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where('email', $request->email)->first();
-
-            if ($user && Hash::check($request->password, $user->password)) {
-                if ($user->status == 'active') {
-                    return $user;
-                } else {
-                    // El usuario no está activo, lanzar una excepción de validación con un mensaje específico
-                    throw ValidationException::withMessages(['alerta' => 'El usuario está inactivo']);
-                }
-            } else {
-                // El usuario no está activo, lanzar una excepción de validación con un mensaje específico
-                throw ValidationException::withMessages(['error' => 'las credenciales no coinciden con nuestros registros.']);
-            }
-        });
+        
     }
 
     /**
