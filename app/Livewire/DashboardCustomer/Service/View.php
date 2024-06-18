@@ -43,5 +43,6 @@ class View extends Component
 
 
         return view('livewire.dashboard-customer.service.view', compact('exhibitors', 'services'));
+
     }
 }

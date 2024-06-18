@@ -2,6 +2,7 @@
 
 namespace App\Livewire\DashboardCustomer\Service;
 
+
 use App\Models\service;
 use App\Models\setting;
 use Livewire\Component;
@@ -51,5 +52,6 @@ class Index extends Component
 
 
         return view('livewire.dashboard-customer.service.index', compact('services', 'type_services',));
+
     }
 }

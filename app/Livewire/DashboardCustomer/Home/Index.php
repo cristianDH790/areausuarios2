@@ -9,9 +9,12 @@ class Index extends Component
 {
 
 
+
+
     public function render()
     {
         $user = Auth::user();
+
 
         // // Obtener todas las ventas del usuario y luego obtener los detalles de venta relacionados
         // $detallesVenta = $user->sales()->with('saleDetails')->get()->pluck('saleDetails')->flatten();
@@ -34,7 +37,10 @@ class Index extends Component
 
 
 
+
         // Ahora $detallesVenta contiene todos los detalles de venta relacionados con las ventas del usuario
         return view('livewire.dashboard-customer.home.index', compact('servicios'));
     }
+
 }
+

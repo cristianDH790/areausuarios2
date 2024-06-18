@@ -41,7 +41,9 @@
                             </path>
                         </svg> </a>
 
+
                     <a href="{{ route('home.customer.index') }}"
+
                         {{ request()->routeIs('home.index') ? 'class=text-cyan-500' : '' }}
                         class="text-gray-700 hover:text-cyan-500">Inicio</a>
 
@@ -49,6 +51,7 @@
                         {{ request()->routeIs('service.customer.index', 'service.customer.view') ? 'class=text-cyan-500' : '' }}
                         class="text-gray-700 hover:text-cyan-500">Cursos</a>
                     <a href="{{ route('my.service.customer.index') }}"
+
                         {{ request()->routeIs('my.service.customer.index', 'my.service.customer.view', 'my.service.customer.video') ? 'class=text-cyan-500' : '' }}
                         class="text-gray-700 hover:text-cyan-500">Mis
                         Cursos</a>
@@ -67,6 +70,7 @@
 
                     <a target="_blank"
                         href="https://api.whatsapp.com/send?phone=51{{ $contact }}&text=Hola%2CQuiero%20comunicarme%20con%20soporte"
+
                         class="text-gray-700 hover:text-cyan-500">Contactanos</a>
                 </div>
             </div>
@@ -74,8 +78,10 @@
                 <button id="user-menu-toggle" class="text-gray-700 focus:outline-none">
                     <div class="flex items-center">
                         <img class="w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="John Doe">
+
                         <span class="ml-2 hidden sm:block">{{ Auth::user()->name }}
                             {{ Auth::user()->last_name }}</span>
+
                         <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -99,7 +105,9 @@
             </div>
         </div>
         <div id="mobile-menu" class="sm:hidden py-2 space-y-1 hidden px-1">
+
             <a href="{{ route('home.customer.index') }}"
+
                 class="block px-4 py-2 text-gray-700 hover:text-white hover:bg-cyan-500 rounded-md">Inicio</a>
             <a href="{{ route('service.customer.index') }}"
                 class="block px-4 py-2 text-gray-700 hover:text-white hover:bg-cyan-500 rounded-md">Cursos</a>

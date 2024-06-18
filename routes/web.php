@@ -1,17 +1,20 @@
 <?php
 
+
 use App\Models\service;
 use App\Http\Middleware\CheckRole;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Livewire\DashboardCustomer\Home\Index;
+
 use App\Http\Controllers\DashboardAdmin\BankController;
 use App\Http\Controllers\DashboardAdmin\FirmController;
 
 
 use App\Http\Controllers\DashboardAdmin\RoleController;
 use App\Http\Controllers\DashboardAdmin\UsersController;
+
 use App\Http\Controllers\DashboardAdmin\ModuleController;
 use App\Http\Controllers\DashboardAdmin\ServiceController;
 use App\Http\Controllers\DashboardAdmin\CustomerController;
@@ -21,15 +24,18 @@ use App\Http\Controllers\DashboardAdmin\HomeAdminController;
 use App\Http\Controllers\DashboardAdmin\ExhibitorsController;
 use App\Http\Controllers\DashboardAdmin\CertificateController;
 use App\Http\Controllers\DashboardAdmin\PermissionsController;
+
 use App\Http\Controllers\DashboardAdmin\TypeServiceController;
 use App\Http\Controllers\presentation\HomePresentationController;
 use App\Http\Controllers\DashboardAdmin\TypeCertificateController;
 use App\Http\Controllers\DashboardCustomer\HomeCustomerController;
 use App\Http\Controllers\DashboardAdmin\SaleUserValidateController;
+
 use App\Http\Controllers\DashboardAdmin\SettingsController;
 use App\Http\Controllers\DashboardCustomer\Services\serviceCustomerController;
 use App\Http\Controllers\DashboardCustomer\Services\MyServiceCustomerController;
 use App\Http\Controllers\DashboardCustomer\Services\serviceController as ServicesServiceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +52,7 @@ use App\Http\Controllers\DashboardCustomer\Services\serviceController as Service
 Route::get('/', function () {
     return view('auth.login');
 });
+
 
 // Route::middleware([
 //     'auth:sanctum',
@@ -64,11 +71,13 @@ Route::get('/', function () {
 
 Route::middleware([
     'auth:sanctum',
+    'can:admin_admins',
     config('jetstream.auth_session'),
     'verified',
 
 ])->group(function () {
     route::get('/home', [HomeController::class, 'index'])->name('home.index');
+
 });
 
 
@@ -80,6 +89,7 @@ Route::middleware([
 
 ])->group(function () {
     route::get('/home_admin', [HomeAdminController::class, 'index'])->name('home.admin.index');
+
     Route::group(['middleware' => ['can:users']], function () {
         route::get('/users', [UsersController::class, 'index'])->name('user.index');
     });
@@ -147,7 +157,9 @@ Route::middleware([
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
     // });
 
+
 });
+
 
 Route::middleware([
     'auth:sanctum',
@@ -156,6 +168,7 @@ Route::middleware([
     'verified',
 ])->group(
     function () {
+
         route::get('/home_customer', [HomeCustomerController::class, 'index'])->name('home.customer.index');
         // route::get('/home', [HomeController::class, 'index'])->name('home.index');
         route::get('/services', [serviceCustomerController::class, 'index'])->name('service.customer.index');
@@ -164,6 +177,7 @@ Route::middleware([
         route::get('/my_services', [MyServiceCustomerController::class, 'index'])->name('my.service.customer.index');
         route::get('/my_services/{slug}', [MyServiceCustomerController::class, 'view'])->name('my.service.customer.view');
         route::get('/my_services/{slug}/video/{module}', [MyServiceCustomerController::class, 'video'])->name('my.service.customer.video');
+
     }
 );
 

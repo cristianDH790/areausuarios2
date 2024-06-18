@@ -215,7 +215,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Vimeo' => Vimeo\Laravel\Facades\Vimeo::class,
+
         'Image' => Intervention\Image\Facades\Image::class,
+
 
     ])->toArray(),
 

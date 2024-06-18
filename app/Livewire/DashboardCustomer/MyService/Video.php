@@ -2,14 +2,17 @@
 
 namespace App\Livewire\DashboardCustomer\MyService;
 
+
 use App\Models\certificate;
 use App\Models\module;
 use App\Models\service;
 use App\Models\video as ModelsVideo;
+
 use Livewire\Component;
 
 class Video extends Component
 {
+
     public service $service;
     public module $module;
 
@@ -58,3 +61,4 @@ class Video extends Component
         return view('livewire.dashboard-customer.my-service.video', compact('filteredModules'));
     }
 }
+

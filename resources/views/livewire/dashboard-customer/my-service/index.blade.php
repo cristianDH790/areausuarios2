@@ -1,4 +1,5 @@
 <div class="max-w-7xl mx-auto py-5 px-5 sm:px-6 lg:px-8 space-y-3">
+
     <div class="bg-white shadow-lg rounded-lg py-3 px-2 sm:flex  sm:justify-between items-center w-full">
         <h1 class="font-bold uppercase w-full">Cursos adquiridos:</h1>
         <x-select wire:model.debounce.live="type_service_id" class="py-2 px-3 w-full    ">
@@ -58,5 +59,6 @@
 
         </div>
     @endif
+
 
 </div>

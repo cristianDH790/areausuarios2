@@ -1,7 +1,9 @@
 <div class="max-w-7xl mx-auto py-5 px-2 sm:px-6 lg:px-8 space-y-3">
+
     <div class="bg-white shadow-lg rounded-lg py-3 px-2 sm:flex  sm:justify-between items-center w-full">
         <h1 class="font-bold uppercase">{{ $service->name }}</h1>
         <h1 class="font-bold uppercase sm:text-end text-start">{{ $service->hours }}</h1>
+
     </div>
     {{-- <div class="bg-white border-2 border-dashed border-gray-300 rounded-lg py-2 px-2 flex justify-between items-center">
         <h1 class="font-semibold uppercase">Psicologia</h1>
@@ -10,17 +12,20 @@
 
     <div class="block md:flex md:space-x-5 ">
         <div class="w-full md:w-1/2 md:flex items-center  bg-white p-2 md:p-5">
+
             <img src="{{ asset('storage/' . $service->image) }}" class="w-full h-full object-center" alt="">
             @if (!$service->image == null)
                 <img src="{{ asset('storage/' . $service->image) }}" class="w-full h-full object-center" alt="">
             @else
                 <img src="{{ asset('storage/no-image.png') }}" class="w-full h-full object-center" alt="">
             @endif
+
         </div>
         <div class="w-full md:w-1/2  flex flex-col bg-white p-2 md:p-5 space-y-5">
             <div class="border-2 border-dashed p-5">
                 <h1 class="text-center font-bold text-lg">Informacion del curso:</h1>
                 <p class="font-bold text-base ">Certificacion: <span class="text-sm font-normal">si</span></p>
+
                 <p class="font-bold text-base ">Horas: <span class="text-sm font-normal">{{ $service->hours }}</span>
                 </p>
                 <p class="font-bold text-base ">Precio: <span class="text-sm font-normal">{{ $service->price }}</span>
@@ -36,10 +41,12 @@
                         class="text-sm font-normal">{{ $service->end_date }}</span></p>
 
 
+
             </div>
             <div class="border-2 border-dashed p-5">
                 <h1 class="text-center font-bold text-lg">Expositores del curso:</h1>
                 <ul>
+
 
                     @if ($exhibitors->isEmpty())
                         <p class="font-bold text-base ">No hay expositores</p>
@@ -57,10 +64,12 @@
                         @endforeach
                     @endif
 
+
                 </ul>
             </div>
             <div class="border-2 border-dashed p-5">
                 <h1 class="text-center font-bold text-lg">Descripcion del curso:</h1>
+
                 <p>{{ $service->little_description }}</p>
             </div>
             <div class="border-2 border-dashed p-5">
@@ -71,6 +80,7 @@
                     </a></p>
                 <p class="font-bold text-base ">Link Video: <a target="_blank" href="{{ $service->link_video }}"
                         class="text-sm font-normal text-blue-500">Video Introduccion</a></p>
+
             </div>
             <div class="flex justify-end">
                 <x-button class="py-2 px-2.5" color="green" primary="600">
@@ -83,6 +93,7 @@
 
     <div class="bg-white p-2 md:p-5">
         <h1 class="text-center font-bold text-lg">Descripcion del curso:</h1>
+
         <p>{{ $service->description }} </p>
     </div>
     <div class="bg-white p-2 md:p-5 ">
@@ -166,6 +177,7 @@
                 @endforeach
             </div>
         @endif
+
     </div>
 
 

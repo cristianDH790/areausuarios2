@@ -21,8 +21,10 @@ class HomeController extends Controller
                 return redirect()->route('home.admin.index');
                 // return redirect()->route('dashboard-admin.index');
             } else {
+
                 return redirect()->route('home.customer.index');
                 //return view('dashboardCustomer.home.index');
+
                 // return redirect()->route('user_area.index');
             }
         }

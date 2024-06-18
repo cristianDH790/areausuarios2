@@ -2,12 +2,15 @@
 
 namespace App\Livewire\DashboardCustomer\MyService;
 
+
 use App\Models\service;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+
 use Livewire\Component;
 
 class View extends Component
 {
+
     use LivewireAlert;
     public service $service;
     public function render()
@@ -28,3 +31,4 @@ class View extends Component
         return view('livewire.dashboard-customer.my-service.view', compact('exhibitors', 'certificate', 'modules'));
     }
 }
+
