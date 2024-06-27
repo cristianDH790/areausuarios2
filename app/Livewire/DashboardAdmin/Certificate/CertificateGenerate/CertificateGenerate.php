@@ -85,6 +85,9 @@ class CertificateGenerate extends Component
 
     public function GenerarCertificado2()
     {
+        $datos_config_certificates = DatosConfigCertificate::all();
+        $pdf = Pdf::loadView('certificates.certificate', compact('datos_config_certificates'));
+        return $pdf->stream('certificate.pdf');
     }
     public  function GenerarCertificado()
     {
