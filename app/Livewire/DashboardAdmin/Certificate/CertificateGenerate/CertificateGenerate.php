@@ -14,6 +14,7 @@ use App\Models\DatosConfigCertificate;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 
+
 class CertificateGenerate extends Component
 {
 
