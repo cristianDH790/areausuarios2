@@ -8,23 +8,32 @@
             font-family: 'DejaVu Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("{{ $backgroundImagePath }}");
+            background-image: url("{{ $backgroundImageBase64 }}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
         }
-        .certificate {
-           color : blue;
-        }
+       
         .text {
+            /* position: absolute;
+            color: #202020;
+            text-align: center;
+            max-width: 80%;
+            white-space: pre-wrap; */
             position: absolute;
             color: #202020;
             text-align: center;
-            white-space: pre-wrap; /* Para asegurar que los saltos de línea se respeten */
+            white-space: pre-wrap;
+            max-width: 80%;
+            word-wrap: break-word;
+            padding: 10px; 
         }
     </style>
 </head>
-<body background = "http://127.0.0.1:8001{{ $backgroundImagePath }}">
+<body >
     
 @foreach ($texts as $text)
         <div class="text"

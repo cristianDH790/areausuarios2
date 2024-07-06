@@ -36,10 +36,13 @@ class CertificateController extends Controller
         $texts = DatosConfigCertificate::where('certificate_id', $certificate->id)
         ->orderBy('key') // Ordenar por la columna 'key'
         ->get();
+        // $backgroundImagePath = asset(Storage::url($certificate->photo_front));
         $backgroundImagePath = asset(Storage::url($certificate->photo_front));
-
+        $imagePath = public_path(Storage::url($certificate->photo_front));
+        $imageData = base64_encode(file_get_contents($imagePath));
+        $backgroundImageBase64 = 'data:image/jpeg;base64,' . $imageData;
       
-        $html = view('certificado', compact('certificate', 'texts', 'backgroundImagePath'))->render();
+        $html = view('certificado', compact('certificate', 'texts', 'backgroundImageBase64'))->render();
         //  dd($html);
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
