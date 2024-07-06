@@ -4438,6 +4438,7 @@
         },
         {
             "name": "sabberworm/php-css-parser",
+
             "version": "v8.6.0",
             "source": {
                 "type": "git",
@@ -4448,6 +4449,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/MyIntervals/PHP-CSS-Parser/zipball/d2fb94a9641be84d79c7548c6d39bbebba6e9a70",
                 "reference": "d2fb94a9641be84d79c7548c6d39bbebba6e9a70",
+
                 "shasum": ""
             },
             "require": {
@@ -4497,6 +4499,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MyIntervals/PHP-CSS-Parser/issues",
+
                 "source": "https://github.com/MyIntervals/PHP-CSS-Parser/tree/v8.6.0"
             },
             "time": "2024-07-01T07:33:21+00:00"
@@ -9732,5 +9735,9 @@
         "php": "^8.1"
     },
     "platform-dev": [],
+
     "plugin-api-version": "2.3.0"
+
+    "plugin-api-version": "2.6.0"
+
 }

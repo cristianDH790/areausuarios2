@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
+    <title>Area Administracion</title>
     @vite('resources/css/app.css', 'resources/js/app.js')
     @include('components.theme.style')
     @livewireStyles
