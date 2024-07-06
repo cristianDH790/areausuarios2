@@ -197,6 +197,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         Vimeo\Laravel\VimeoServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
     ],
@@ -217,6 +218,7 @@ return [
         'Vimeo' => Vimeo\Laravel\Facades\Vimeo::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
     ])->toArray(),

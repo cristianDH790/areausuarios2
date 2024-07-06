@@ -68,7 +68,7 @@ Route::get('/', function () {
 // Route::get('/dashboard-user', [DashboardUserController::class, 'index'])->name('user_area.index')->name('dashboard-user.index');
 
 
-
+Route::get('certificate/{id}/generate', [CertificateController::class, 'GenerarCertificado'])->name('generate.certificate');
 Route::middleware([
     'auth:sanctum',
     //'can:admin_admins',
