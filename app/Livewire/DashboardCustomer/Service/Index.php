@@ -52,6 +52,5 @@ class Index extends Component
 
 
         return view('livewire.dashboard-customer.service.index', compact('services', 'type_services',));
-
     }
 }

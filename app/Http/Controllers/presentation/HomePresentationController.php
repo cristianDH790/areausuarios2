@@ -11,4 +11,8 @@ class HomePresentationController extends Controller
     {
         return view('presentation.home.index');
     }
+    public function cursos()
+    {
+        return view('presentation.curso.index');
+    }
 }

@@ -71,13 +71,12 @@ Route::get('/', function () {
 
 Route::middleware([
     'auth:sanctum',
-    'can:admin_admins',
+    //'can:admin_admins',
     config('jetstream.auth_session'),
     'verified',
 
 ])->group(function () {
     route::get('/home', [HomeController::class, 'index'])->name('home.index');
-
 });
 
 
@@ -177,11 +176,11 @@ Route::middleware([
         route::get('/my_services', [MyServiceCustomerController::class, 'index'])->name('my.service.customer.index');
         route::get('/my_services/{slug}', [MyServiceCustomerController::class, 'view'])->name('my.service.customer.view');
         route::get('/my_services/{slug}/video/{module}', [MyServiceCustomerController::class, 'video'])->name('my.service.customer.video');
-
     }
 );
 
 //rutas de presentacion
 Route::middleware([])->group(function () {
     route::get('/p-home', [HomePresentationController::class, 'index'])->name('p-home.index');
+    route::get('/p-cursos', [HomePresentationController::class, 'cursos'])->name('p-cursos.index');
 });
