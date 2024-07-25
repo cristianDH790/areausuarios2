@@ -125,7 +125,8 @@
                             <p class="mx-md-5 px-5">Lorem rebum magna dolore amet lorem eirmod magna erat diam stet.
                                 Sadips duo stet amet amet ndiam elitr ipsum labore diam</p>
                             <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
-                                href="#">Make Appointment</a>
+                                href="#">Make Appointment</a> 
+                                
                         </div>
                     </div>
                 </div>
