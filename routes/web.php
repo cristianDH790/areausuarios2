@@ -184,3 +184,4 @@ Route::middleware([])->group(function () {
     route::get('/p-home', [HomePresentationController::class, 'index'])->name('p-home.index');
     route::get('/p-cursos', [HomePresentationController::class, 'cursos'])->name('p-cursos.index');
 });
+ 
