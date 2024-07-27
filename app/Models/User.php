@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function certificates()
     {
-        return $this->belongsToMany(Certificate::class);
+        return $this->belongsToMany(Certificate::class)->withPivot('path_certificate', 'delivered_by', 'status');;
     }
     public function sales()
     {

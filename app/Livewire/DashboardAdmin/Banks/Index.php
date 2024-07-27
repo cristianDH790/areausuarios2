@@ -20,7 +20,12 @@ class Index extends Component
     public $headline;
     public $document;
 
-
+    public function delete($id)
+    {
+        $bank = bank::find($id);
+        $bank->delete();
+        $this->alert('success', 'Banco eliminado con exito');
+    }
 
     public function save()
     {
@@ -44,7 +49,7 @@ class Index extends Component
         $this->reset('name', 'account_number', 'account_number_interbank', 'type_account', 'headline', 'document');
 
         $this->flash('success', 'Banco creado con exito!');
-        return redirect()->route('dashboard-admin.banks.index');
+        return redirect()->route('bank.index');
     }
     public function render()
     {

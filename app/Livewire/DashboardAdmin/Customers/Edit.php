@@ -55,8 +55,8 @@ class Edit extends Component
         $user = User::findOrFail($id);
 
         // Actualizar los campos de usuario con los nuevos valores
-        $user->name = $this->name;
-        $user->last_name = $this->last_name;
+        $user->name = strtoupper($this->name);
+        $user->last_name = strtoupper($this->last_name);
         $user->email = $this->email;
         $user->phone = $this->phone;
         $user->document = $this->document;

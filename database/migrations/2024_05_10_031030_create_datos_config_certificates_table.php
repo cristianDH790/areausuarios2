@@ -20,10 +20,11 @@ return new class extends Migration
             $table->integer('y')->nullable()->default(0);
             $table->string('align')->nullable();
             $table->string('type_typography')->nullable()->default('ARIAL');
-            $table->string('type_typography2')->nullable()->default('ARIAL');
+            $table->integer('ancho_caja')->nullable()->default(1000);
             $table->integer('font_size')->nullable()->default(16);
             $table->string('color')->nullable();
             $table->boolean('painting')->nullable()->default(true);
+            $table->boolean('lineado')->nullable()->default(false);
             $table->timestamps();
         });
     }

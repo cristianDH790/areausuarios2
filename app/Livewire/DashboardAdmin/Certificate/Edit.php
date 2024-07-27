@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\certificate;
 use Livewire\WithFileUploads;
 use App\Models\type_certificate;
+use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Edit extends Component
@@ -39,6 +40,7 @@ class Edit extends Component
         $this->pathfile2 = $this->certificate->photo_back;
         $this->description = $this->certificate->description;
     }
+
     public function save()
     {
         $this->validate([
@@ -55,16 +57,33 @@ class Edit extends Component
         $this->certificate->broadcast_date = $this->broadcast_date;
         $this->certificate->status = $this->status;
 
-
         $randomNumber = uniqid(); // Genera un número único
-        $fileNamefront = $randomNumber . '_front.' . $this->photo_front->extension();
-        $fileNameback = $randomNumber . '_back.' . $this->photo_back->extension();
 
-        $this->photo_front->storeAs('public/certificates', $fileNamefront);
-        $this->photo_back->storeAs('public/certificates', $fileNameback);
 
-        $this->certificate->photo_front =  'certificates/' . $fileNamefront;
-        $this->certificate->photo_back = 'certificates/' . $fileNameback;
+        if ($this->photo_front) {
+            if (Storage::disk('public')->exists($this->pathfile)) {
+                Storage::disk('public')->delete($this->pathfile);
+                $fileNamefront = $randomNumber . '_front.' . $this->photo_front->extension();
+                $this->photo_front->storeAs('public/certificates', $fileNamefront);
+                $this->certificate->photo_front =  'certificates/' . $fileNamefront;
+            }else{
+                $fileNamefront = $randomNumber . '_front.' . $this->photo_front->extension();
+                $this->photo_front->storeAs('public/certificates', $fileNamefront);
+                $this->certificate->photo_front =  'certificates/' . $fileNamefront;
+            }
+        }
+        if ($this->photo_back) {
+            if (Storage::disk('public')->exists($this->pathfile2)) {
+                Storage::disk('public')->delete($this->pathfile2);
+                $fileNameback = $randomNumber . '_back.' . $this->photo_back->extension();
+                $this->photo_back->storeAs('public/certificates', $fileNameback);
+                $this->certificate->photo_back = 'certificates/' . $fileNameback;
+            }else{
+                $fileNameback = $randomNumber . '_back.' . $this->photo_back->extension();
+                $this->photo_back->storeAs('public/certificates', $fileNameback);
+                $this->certificate->photo_back = 'certificates/' . $fileNameback;
+            }
+        }
 
 
         $this->certificate->description = $this->description;

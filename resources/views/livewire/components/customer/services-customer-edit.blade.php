@@ -22,7 +22,18 @@
                 </div>
             </div>
         </div>
-        @if ($archivoPathanterior)
+      
+        <div class="bg-white px-4 py-4 card">
+            <x-button primary="500" color="yellow" secondary="800" href="{{ route('generate.certificate.masivo', [$certificate->service->id, $user->code]) }}"
+                download class="px-4 py-2">
+                Descargar archivo
+            </x-button>
+            <x-button primary="500" color="green" secondary="800"  href="{{ route('generate.certificate.masivo.blanco', [$certificate->service->id, $user->code]) }}"
+               download  class="px-4 py-2">
+                Descargar archivo en blanco 
+            </x-button>
+        </div>
+        {{-- @if ($archivoPathanterior)
             <div class="bg-white px-4 py-4 card">
                 <x-button primary="500" color="yellow" secondary="800"
                     href="{{ url('storage/' . $archivoPathanterior) }}" download class="px-4 py-2">
@@ -33,9 +44,9 @@
                     Ver archivo anterior
                 </x-button>
             </div>
-        @endif
+        @endif --}}
 
-        <div class="bg-white px-4 py-4 card">
+        {{-- <div class="bg-white px-4 py-4 card">
             <x-label>Archivo: {!! $archivoPath
                 ? '<a class="text-red-500" target="_blank" href="' . url('storage/' . $archivoPath) . '">ver archivo</a>'
                 : '' !!}</x-label>
@@ -48,7 +59,7 @@
             @error('file_certificate')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
-        </div>
+        </div> --}}
         <div>
             <x-button wire:click="save" primary="500" color="blue" secondary="800" class="px-4 py-2">
                 Guardar

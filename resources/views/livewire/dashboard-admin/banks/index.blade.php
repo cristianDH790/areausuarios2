@@ -63,10 +63,7 @@
                                         <td class="actions-cell">
                                             <div class="buttons right nowrap space-x-1">
 
-                                                <x-button class=" px-1 py-1" href="{{ route('firm.edit', $bank->id) }}"
-                                                    color="yellow" secondary="800" primary="600" title="view">
-                                                    <span class="icon"><i class="mdi mdi-pencil"></i></span>
-                                                </x-button>
+
 
                                                 <x-button class=" --jb-modal px-1 py-1"
                                                     data-target="sample-modal-delete-{{ $bank->id }}" color="red"

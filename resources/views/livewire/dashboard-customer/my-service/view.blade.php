@@ -52,14 +52,59 @@
                         <p class="font-bold text-base ">No hay expositores</p>
                     @else
                         @foreach ($exhibitors as $exhibitor)
-                            <div class="flex justify-between space-y-1">
+                            <div class="flex justify-between space-y-1  items-center">
                                 <p class="font-bold text-base ">Expositor {{ $loop->index + 1 }}: <span
                                         class="text-sm font-normal">{{ $exhibitor->name }}
                                         {{ $exhibitor->last_name }}</span>
                                 </p>
+
+                                <div x-data="{ open: false }">
+                                    <!-- Botón para abrir el modal -->
+                                    <button @click="open = true"
+                                        class="py-2.5 px-3.5 text-xs border border-transparent inline-flex font-semibold tracking-widest text-white uppercase bg-yellow-500  rounded-md ">
+                                        ver
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div x-show="open" @click.away="open = false" style="display: none;"
+                                        class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                                        <div class="bg-white p-4 rounded shadow-lg w-3/4 max-w-xl" @click.stop>
+                                            <div class="flex justify-between items-center">
+                                                <h2 class="text-xl font-semibold">{{ $exhibitor->prefix }}
+                                                    {{ $exhibitor->name }}
+                                                    {{ $exhibitor->last_name }}</h2>
+                                                <button @click="open = false" class="text-gray-600 hover:text-gray-900">
+                                                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="mt-4">
+                                                <!-- Contenido del modal -->
+                                                @if (!$exhibitor->photo == null)
+                                                    <img src="{{ asset('storage/' . $exhibitor->photo) }}"
+                                                        class="w-full h-full object-center rounded-md" alt="">
+                                                @else
+                                                    <img src="{{ asset('storage/no-image.png') }}"
+                                                        class="w-full h-full object-center" alt="">
+                                                @endif
+                                                <br>
+                                                <p>{{ $exhibitor->review }}
+                                                </p>
+                                                <br>
+
+                                                <a href="{{ $exhibitor->link }}" target="_blank"
+                                                    class="text-white bg-red-500 px-3 py-2 items-center text-center rounded-md hover:underline">
+                                                    Curriculum
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 {{-- hoja de vida --}}
-                                <a href="" target="_blank"
-                                    class="text-white px-1.5 py-0.5 bg-yellow-500 rounded-md">Ver</a>
+
                             </div>
                         @endforeach
                     @endif
