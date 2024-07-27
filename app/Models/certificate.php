@@ -22,6 +22,6 @@ class certificate extends Model
     }
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('path_certificate', 'delivered_by', 'status');;
     }
 }

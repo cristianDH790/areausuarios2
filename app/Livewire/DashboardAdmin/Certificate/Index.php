@@ -2,10 +2,15 @@
 
 namespace App\Livewire\DashboardAdmin\Certificate;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Models\User;
+use App\Models\module;
 use Livewire\Component;
 use App\Models\certificate;
 use Livewire\WithPagination;
+use App\Models\DatosConfigCertificate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
@@ -54,13 +59,22 @@ class Index extends Component
                 ->get();
 
             foreach ($usuarios as $usuario) {
+
                 $usuario->certificates()->syncWithoutDetaching([$certificate_id]);
+                if ($certificate->status == 'active') {
+                    $usuario->certificates()->updateExistingPivot($certificate_id, [
+                        'delivered_by' => Auth::user()->name . ' ' . Auth::user()->last_name,
+                        'status' => $certificate->status,
+                    ]);
+                }
             }
-            $this->alert('success', 'Certificados vinculados correctamente' . count($usuarios));
+            //dd($usuario->certificates);
+            $this->alert('success', 'Certificados vinculados correctamente ' . count($usuarios));
         } else {
             $this->alert('error', 'No hay usuarios que hayan adquirido este servicio o certificado');
         }
     }
+
     public function render()
     {
         $certificates = Certificate::whereHas('service', function ($query) {

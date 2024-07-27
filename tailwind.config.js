@@ -24,6 +24,9 @@ export default {
         'bg-red-900',
         'bg-red-950',
 
+
+
+
         'bg-yellow-100',
         'bg-yellow-50',
         'bg-yellow-200',
@@ -41,6 +44,7 @@ export default {
         'bg-gray-50', 'bg-gray-100', 'bg-gray-200', 'bg-gray-300', 'bg-gray-400', 'bg-gray-500', 'bg-gray-600', 'bg-gray-700', 'bg-gray-800', 'bg-gray-900', 'bg-gray-950',
 
 
+        'bg-amber-50', 'bg-amber-100', 'bg-amber-200', 'bg-amber-300', 'bg-amber-400', 'bg-amber-500', 'bg-amber-600', 'bg-amber-700', 'bg-amber-800', 'bg-amber-900', 'bg-amber-950',
 
     ],
 

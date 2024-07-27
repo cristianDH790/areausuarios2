@@ -170,8 +170,8 @@ class Index extends Component
 
         //agregamos el ususario nuevo
         $new_user->document = $this->document;
-        $new_user->name = $this->name;
-        $new_user->last_name = $this->last_name;
+        $new_user->name = strtoupper($this->name);
+        $new_user->last_name = strtoupper($this->last_name);
         $new_user->phone = $this->phone;
         $new_user->email = $this->email;
         $new_user->password = bcrypt($this->document);

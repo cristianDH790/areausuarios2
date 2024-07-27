@@ -7,14 +7,21 @@ use App\Models\service;
 use App\Models\type_service;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use App\Models\setting;
 
 class Index extends Component
 {
     public $type_service_id;
     public $type_service_count;
+    public $settings;
+    public $user_pivote;
     public function render()
     {
         $user = Auth::user();
+        $this->settings = setting::first();
+
+
+       
 
         // Obtener los IDs de los servicios relacionados con las ventas del usuario
         $servicios = $user->sales()->with('saleDetails.service')->get()->pluck('saleDetails')->flatten()->pluck('service')->unique();
@@ -35,4 +42,3 @@ class Index extends Component
         return view('livewire.dashboard-customer.my-service.index', compact('services', 'type_services',));
     }
 }
-

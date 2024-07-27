@@ -10,9 +10,7 @@
         <div class="w-3/4 p-2">
             <div id="videoPlayer" class="relative" style="padding-top: 56.25%;">
                 <iframe id="vimeoPlayer"
-
-                    src="https://player.vimeo.com/video/{{ $module->video->url }}?badge=0&autopause=0&player_id=0&app_id=58479"
-
+                    src="https://player.vimeo.com/video/{{ $module->video->url ?? 55555 }}?badge=0&autopause=0&player_id=0&app_id=58479"
                     frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
                     class="absolute top-0 left-0 w-full h-full" title="video prueba"></iframe>
             </div>
@@ -21,10 +19,11 @@
             <div class="border-2 border-dashed p-2">
                 <h1 class="text-start font-bold text-lg">Informacion del video:</h1>
 
-                <p class="font-bold text-base ">Titulo: <span class="text-sm font-normal">{{ $service->name }}</span>
+                <p class="font-bold text-base ">Titulo:
+                <p class="text-sm font-normal">{{ $service->name }}</p>
                 </p>
-                <p class="font-bold text-base ">Descripcion: <span
-                        class="text-sm font-normal">{{ $service->little_description }}</span>
+                <p class="font-bold text-base ">Descripcion:
+                <p class="text-sm font-normal">{{ $service->little_description }}</p>
 
                 </p>
             </div>
@@ -33,12 +32,16 @@
 
 
                 @foreach ($filteredModules as $filteredModule)
-                    <x-button
-                        href="{{ route('my.service.customer.video', ['slug' => $service->slug, 'module' => $filteredModule->id]) }}"
-                        class="bg-blue-500 px-4 py-2 hover:bg-blue-700 text-white inline-flex items-center w-full">
-                        <i class="fas fa-play mr-2"></i>
-                        <span class="">{{ $filteredModule->video->title }}</span>
-                    </x-button>
+                    @if (!$filteredModule->video == null)
+                        <x-button
+                            href="{{ route('my.service.customer.video', ['slug' => $service->slug, 'module' => $filteredModule->id]) }}"
+                            class="bg-blue-500 px-4 py-2 hover:bg-blue-700 text-white inline-flex items-center w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            <span
+                                class="">{{ $filteredModule->video->title ?? 'No hay video, contáctese con soporte.' }}</span>
+                        </x-button>
+                    @else
+                    @endif
                 @endforeach
 
             </div>
@@ -91,7 +94,8 @@
                     <td class="py-3 px-4 text-left">1</td>
                     <td class="py-3 px-4 text-left">
                         <audio controls class="w-full">
-                            <source src="{{ $module->video->audio }}" type="audio/mpeg">
+                            <source src="{{ $module->video->audio ?? 'No hay audio, contáctese con soporte.' }}"
+                                type="audio/mpeg">
 
                             Tu navegador no soporta el elemento de audio.
                         </audio>

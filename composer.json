@@ -22,7 +22,9 @@
         "livewire/livewire": "^3.0",
         "spatie/laravel-permission": "^6.4",
         "vimeo/laravel": "^5.9",
-        "vimeo/vimeo-api": "^3.0"
+        "vimeo/vimeo-api": "^3.0",
+        "simplesoftwareio/simple-qrcode": "~4.0",
+        "bacon/bacon-qr-code": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

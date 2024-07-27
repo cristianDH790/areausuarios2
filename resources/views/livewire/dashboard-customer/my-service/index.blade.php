@@ -44,16 +44,133 @@
                                 <p class="text-sm font-bold text-gray-700">Horas: <span class="font-light">
                                         {{ $service->hours }}</span></p>
                             </div>
-                            <x-button class="py-2 px-3" color="yellow" primary="500">
-                                <i class="mdi mdi-certificate"> </i>
-                            </x-button>
+                            {{-- @dd($service) --}}
+
+                            @php
+                                //traer la tabla pivote y su estado
+
+                                $status = Auth::user()
+                                    ->certificates()
+                                    ->where('certificate_id', $service->certificate->id)
+                                    ->where('user_id', Auth::user()->id)
+                                    ->first();
+
+                            @endphp
+                            @if ($service->certificate->status == 'active')
+                                @if ($status->pivot->status == 'active')
+                                    <x-button class="py-2 px-3" color="yellow" primary="500" target="_blank"
+                                        href="{{ route('generate.certificate.masivo', [$service, Auth::user()->code]) }}">
+                                        Certificado
+                                    </x-button>
+                                @else
+                                    <div x-data="{ open: false }">
+                                        <!-- Botón para abrir el modal -->
+                                        <button @click="open = true"
+                                            class="py-2.5 px-3.5 text-xs border border-transparent inline-flex font-semibold tracking-widest text-white uppercase bg-yellow-500  rounded-md ">
+                                            Certificado
+                                        </button>
+                                        @php
+
+                                            if ($settings != null) {
+                                                $contact = $settings->phone_contact;
+                                            } else {
+                                                $contact = '000000000';
+                                            }
+
+                                        @endphp
+                                        <!-- Modal -->
+                                        <div x-show="open" @click.away="open = false" style="display: none;"
+                                            class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                                            <div class="bg-white p-4 rounded shadow-lg w-3/4 max-w-lg" @click.stop>
+                                                <div class="flex justify-between items-center">
+                                                    <h2 class="text-xl font-semibold">Certificado</h2>
+                                                    <button @click="open = false"
+                                                        class="text-gray-600 hover:text-gray-900">
+                                                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                                            viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <!-- Contenido del modal -->
+                                                    <p>El certificado aun no se encuentra activo comuniquese con el
+                                                        soporte
+                                                        para mas informacion.
+                                                    </p>
+                                                    <br>
+
+                                                    <a href="https://api.whatsapp.com/send?phone=51{{ $contact }}&text=Hola%2CQuiero%20comunicarme%20con%20soporte%20,mi%20certificado%20no%20esta%20activado"
+                                                        target="_blank" class="text-blue-500 hover:underline">
+                                                        Comunicarse con soporte
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @else
+                                <div x-data="{ open: false }">
+                                    <!-- Botón para abrir el modal -->
+                                    <button @click="open = true"
+                                        class="py-2.5 px-3.5 text-xs border border-transparent inline-flex font-semibold tracking-widest text-white uppercase bg-yellow-500  rounded-md ">
+                                        Certificado
+                                    </button>
+                                    @php
+
+                                        if ($settings != null) {
+                                            $contact = $settings->phone_contact;
+                                        } else {
+                                            $contact = '000000000';
+                                        }
+
+                                    @endphp
+                                    <!-- Modal -->
+                                    <div x-show="open" @click.away="open = false" style="display: none;"
+                                        class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                                        <div class="bg-white p-4 rounded shadow-lg w-3/4 max-w-lg" @click.stop>
+                                            <div class="flex justify-between items-center">
+                                                <h2 class="text-xl font-semibold">Certificado</h2>
+                                                <button @click="open = false" class="text-gray-600 hover:text-gray-900">
+                                                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="mt-4">
+                                                <!-- Contenido del modal -->
+                                                <p>El certificado aun no se encuentra activo comuniquese con el
+                                                    soporte
+                                                    para mas informacion.
+                                                </p>
+                                                <br>
+
+                                                <a href="https://api.whatsapp.com/send?phone=51{{ $contact }}&text=Hola%2CQuiero%20comunicarme%20con%20soporte%20,mi%20certificado%20no%20esta%20activado"
+                                                    target="_blank" class="text-blue-500 hover:underline">
+                                                    Comunicarse con soporte
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+
+
+
+
+
                             <x-button class="py-2 px-3" color="green"
                                 href="{{ route('my.service.customer.view', $service->slug) }}" primary="600">
-                                <i class="mdi mdi-book-open-page-variant"></i>
+                                Estudiar
                             </x-button>
 
                         </div>
                     </div>
+
                 </div>
             @endforeach
 

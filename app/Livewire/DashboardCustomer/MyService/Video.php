@@ -44,7 +44,12 @@ class Video extends Component
 
 
         $modules = $certificate->modules;
-        $videoActualId = $this->module->video->id;
+        if ($this->module->video) {
+            $videoActualId = $this->module->video->id;
+        } else {
+            $videoActualId = null;
+        }
+
         $filteredModules = collect();
 
         // Filtrar los módulos excluyendo el módulo actual que contiene el video actual
@@ -61,4 +66,3 @@ class Video extends Component
         return view('livewire.dashboard-customer.my-service.video', compact('filteredModules'));
     }
 }
-

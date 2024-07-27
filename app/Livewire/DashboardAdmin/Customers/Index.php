@@ -100,10 +100,10 @@ class Index extends Component
         try {
             $this->validate();
             $user = new User();
-            $user->name = $this->name;
+            $user->name = strtoupper($this->name);
             $user->document = $this->document;
             $user->email = $this->email;
-            $user->last_name = $this->last_name;
+            $user->last_name = strtoupper($this->last_name);
             $user->phone = $this->phone;
             $user->status = "inactive";
             $user->code = "CL-" . $this->document;

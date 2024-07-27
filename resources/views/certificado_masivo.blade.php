@@ -82,7 +82,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Certificado Configuracion</title>
+    <title>{{ $users->name }} {{ $users->last_name }}</title>
     <style>
         body {
             font-family: "Cinzel", serif;
@@ -123,7 +123,7 @@
 </head>
 
 <body>
-     
+
     @php
         $var = true;
     @endphp
@@ -146,11 +146,11 @@
             left: {{ $text->x }}px; 
             font-size: {{ $text->font_size }}px; 
             color: {{ $text->painting ? '#FC8787' : '#202020' }}; 
+            font-weight: {{ $text->type_typography }};
              font-family: 'Cinzel', 'serif';
-             font-weight: {{$text->type_typography}};
             text-align: {{ $text->align }}; 
             width: {{ $text->ancho_caja }}px; 
-            {{ $text->painting ? 'background-color: red;' : '' }} ">@if (!($jsonData = json_decode($text->value, true))){!! preg_replace('/\*(.*?)\*/', '<b>$1</b>', htmlspecialchars($text->value)) !!}@else @endif</div>
+            {{ $text->painting ? 'background-color: red;' : '' }} ">@if (!($jsonData = json_decode($text->value, true)))@if ($text->key == 'A_7'){{ $users->name }} {{ $users->last_name }}@else{!! preg_replace('/\*(.*?)\*/', '<b>$1</b>', htmlspecialchars($text->value)) !!}@endif @endif</div>
             @if ($jsonData = json_decode($text->value, true))
                 @php
                     // Extrae la ruta de la imagen desde el JSON
@@ -159,7 +159,6 @@
                     $ruta_sello = 'storage/' . $jsonData['sello'];
                     //echo $firmas_all;
                 @endphp
-
                 <div
                     style=" top: {{ $text->y }}px;
             left: {{ $text->x }}px; 
@@ -178,16 +177,14 @@
                         <p style="margin: 0;  font-size: {{ $text->font_size - 3 }}px;  font-weight: bold ">
                             {{ $jsonData['texto2'] }}</p>
                     </div>
-
-
-
                 </div>
             @else
             @endif
         @endif
     @endforeach
     <!-- Forzar un salto de página -->
-    <div class="page-break"></div>
+  <div class="page-break"></div>
+
     @foreach ($texts as $text)
         @if (
             $text->key == 'B_1' ||
@@ -206,11 +203,12 @@
                 left: {{ $text->x }}px;
                 font-size: {{ $text->font_size }}px;
                  color: {{ $text->painting ? '#FC8787' : '#202020' }}; 
-                 font-weight: {{$text->type_typography}};
+               font-weight: {{$text->type_typography}};
                 text-align: {{ $text->align }}; 
             width: {{ $text->ancho_caja }}px; 
                 {{ $text->painting ? 'background-color: red;' : '' }}
-            ">@if ($text->key == 'B_2')@foreach ($temarios as $temario)<li style="margin: 0; font-size: {{ $text->font_size }}px;">{{ $temario->title }}@if (!empty($temario->topics))<ul style="margin: 0;">@foreach ($temario->topics as $topic)<li style="margin: 0; list-style-type: square; font-size: {{ $text->font_size - 3 }}px; ">{{ $topic->title }}@if (!empty($topic->sub_topics))<ul style="margin: 0; font-size: {{ $text->font_size - 5 }}px;">@foreach ($topic->sub_topics as $subTopic)<li style="margin: 0;">{{ $subTopic->title }}</li>@endforeach</ul>@endif</li>@endforeach</ul>@endif</li>@endforeach @else @if (json_decode($text->value, true))@php $jsonDatas = json_decode($text->value, true); @endphp @foreach ($jsonDatas as $jsonData)<li style="margin: 0;">{{ $jsonData }}</li>@endforeach @else @if($text->key == 'B_5')<img style="margin: 0;" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge('/public/img/testimonial-3.jpg')->size($text->font_size)->errorCorrection('H')->margin(3)->generate(route('generate.certificate', ['id' => $certificate->id]))) !!} ">@else{!! preg_replace('/\*(.*?)\*/', '<b>$1</b>', htmlspecialchars($text->value)) !!}@endif @endif @endif</div></div>@endif
+            ">@if ($text->key == 'B_2')@foreach ($temarios as $temario)<li style="margin: 0; font-size: {{ $text->font_size }}px;">{{ $temario->title }}@if (!empty($temario->topics))<ul style="margin: 0;">@foreach ($temario->topics as $topic)<li style="margin: 0; list-style-type: square; font-size: {{ $text->font_size - 3 }}px; ">{{ $topic->title }}@if (!empty($topic->sub_topics))<ul style="margin: 0; font-size: {{ $text->font_size - 5 }}px;">@foreach ($topic->sub_topics as $subTopic)<li style="margin: 0;">{{ $subTopic->title }}</li>@endforeach</ul>@endif</li>@endforeach</ul>@endif</li>@endforeach @else @if (json_decode($text->value, true))@php $jsonDatas = json_decode($text->value, true); @endphp @foreach ($jsonDatas as $jsonData)<li style="margin: 0;">{{ $jsonData }}</li>@endforeach @else @if ($text->key == 'B_5')<img style="margin: 0;" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->merge('/public/img/testimonial-3.jpg')->size($text->font_size)->errorCorrection('H')->margin(3)->generate(route('generate.certificate', ['id' => $certificate->id])),) !!} ">@else @if ($text->key == 'B_4')<b style="font-size: {{ $text->font_size }}px;">CODIGO:</b> <span style="font-size: {{ $text->font_size-1 }}px;">{{ $users->code }}-{{ $servicio->code_service }}</span>@else{!! preg_replace('/\*(.*?)\*/', '<b>$1</b>', htmlspecialchars($text->value)) !!}@endif @endif @endif @endif</div></div>
+        @endif
     @endforeach
     {{-- <div>
         <div class="text"
