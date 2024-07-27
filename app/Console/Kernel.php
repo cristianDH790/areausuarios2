@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('app:active-certificate')->everyThirtySeconds();; // Configura la frecuencia
+        $schedule->command('app:active-certificate')->daily(); // Configura la frecuencia
     }
 
     /**
