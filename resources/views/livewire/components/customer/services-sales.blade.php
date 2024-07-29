@@ -43,6 +43,11 @@
 
 
                                 <td>
+                                    <x-button class="px-1 py-1" color="amber" secondary="800" primary="600"
+                                        title="Generar Boleta" target="_blank"
+                                        href="{{ route('generate.boleta.masivo', ['code' => $user->code, 'sale' => $sale->id]) }}">
+                                        <span class="icon"><i class="mdi mdi-file"></i></span>
+                                    </x-button>
                                     <x-button class="px-1 py-1" color="yellow" secondary="800" primary="600"
                                         title="view"
                                         href="{{ route('customer.sale.edit', ['code' => $user->code, 'sale' => $sale->id]) }}">

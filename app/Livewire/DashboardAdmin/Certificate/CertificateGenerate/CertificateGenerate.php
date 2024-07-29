@@ -922,8 +922,11 @@ class CertificateGenerate extends Component
         }
 
         $this->exhibitors = exhibitor::all();
-        $exhibitor_decode = json_decode($B_7->value);
-        $this->selectedExhibitors = $exhibitor_decode;
+        if ($B_7) {
+            $exhibitor_decode = json_decode($B_7->value);
+            $this->selectedExhibitors = $exhibitor_decode;
+        }
+
         $this->value_B_7 = $B_7->value ?? '';
         $this->x_B_7 = $B_7->x ?? '';
         $this->y_B_7 = $B_7->y ?? '';

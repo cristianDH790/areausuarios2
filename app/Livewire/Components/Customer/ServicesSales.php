@@ -15,6 +15,7 @@ class ServicesSales extends Component
     public function mount()
     {
     }
+    
     public function delete_sale($sale_id)
     {
 
