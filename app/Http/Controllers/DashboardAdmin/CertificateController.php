@@ -17,6 +17,8 @@ use App\Models\service;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Barryvdh\DomPDF\Facade\Pdf; // Importar Dompdf correctamente
+use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
+
 //use Intervention\Image\ImageManagerStatic as Image;
 
 class CertificateController extends Controller
@@ -82,7 +84,7 @@ class CertificateController extends Controller
     }
     public function GenerarCertificadoMasivo($service, $code)
     {
-
+        
         $servicio = service::find($service);
 
 
@@ -109,7 +111,7 @@ class CertificateController extends Controller
         //$qr = $this->GenerarQr();
 
         // $firmas_all = firm::where('certificate_id', $certificate->id)->get();
-        $html = view('certificado_masivo', compact('certificate', 'texts', 'temarios', 'users', 'servicio',  'backgroundImageBase64'))->render();
+        $html = view('certificado_masivo', compact('certificate', 'texts', 'temarios', 'users', 'servicio', 'code', 'backgroundImageBase64'))->render();
         //  dd($html);
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
@@ -123,8 +125,8 @@ class CertificateController extends Controller
         $pdf->render();
         $output = $pdf->output();
         $name = $users->name . ' ' . $users->last_name;
-        $codigoU= $users->code.'-'.$servicio->code_service;
-        $publicPath = public_path('Certificate_Users/' . $name .'-'. $codigoU.  '.pdf');
+        $codigoU = $users->code . '-' . $servicio->code_service;
+        $publicPath = public_path('Certificate_Users/' . $name . '-' . $codigoU .  '.pdf');
         //Verifica si el directorio existe y créalo si no es así
         $pdfDir = dirname($publicPath);
         if (!file_exists($pdfDir)) {

@@ -14,6 +14,7 @@ use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use App\Models\shopping_carts;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Finances extends Component
@@ -181,7 +182,7 @@ class Finances extends Component
         $sale->bank_id = null;
         $sale->voucher = null;
         $sale->type_detail = 'boleta';
-        $sale->sale_by = auth()->user()->name;
+        $sale->sale_by = auth()->user()->name . ' ' . Auth::user()->last_name;
         $sale->description = 'esta venta se realizo con finacia de ' . $this->num_pay . ' cuotas';
         $sale->save();
         $carts = shopping_carts::all();
@@ -280,7 +281,7 @@ class Finances extends Component
         $sale->bank_id = null;
         $sale->voucher = null;
         $sale->type_detail = 'boleta';
-        $sale->sale_by = auth()->user()->name;
+        $sale->sale_by = auth()->user()->name . ' ' . Auth::user()->last_name;
         $sale->description = 'esta venta se realizo con finacia de ' . $this->num_pay . ' cuotas';
         $sale->save();
         //guardamos la detalle venta

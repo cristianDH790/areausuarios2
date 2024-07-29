@@ -38,11 +38,12 @@ class RoleSeeder extends Seeder
         $role1->givePermissionTo($this->permissions['validate_finances']);
         $role1->givePermissionTo($this->permissions['validate_users']);
 
-
+        $role2->givePermissionTo($this->permissions['admin_admins']);
         $role2->givePermissionTo($this->permissions['sale_users']);
         $role2->givePermissionTo($this->permissions['customers']);
         $role2->givePermissionTo($this->permissions['sale_finances']);
 
+        $role3->givePermissionTo($this->permissions['admin_admins']);
         $role3->givePermissionTo($this->permissions['validate_users']);
         $role3->givePermissionTo($this->permissions['validate_finances']);
 

@@ -13,7 +13,7 @@
                 @foreach ($servicios as $servicio)
                     <div class="relative bg-white shadow-lg rounded-lg overflow-hidden">
 
-                        <a href="{{ route('service.customer.view', $servicio->slug) }}">
+                        <a href="{{ route('my.service.customer.view', $servicio->slug) }}">
                             <div class="relative max-w-screen w-full h-60">
 
                                 @if (!$servicio->image == null)
@@ -53,7 +53,7 @@
 
                                 </x-button> --}}
                                 <x-button class="py-2 px-3" color="blue"
-                                    href="{{ route('service.customer.view', $servicio->slug) }}" primary="600">
+                                    href="{{ route('my.service.customer.view', $servicio->slug) }}" primary="600">
                                     <i class="mdi mdi-arrow-right"> Ver curso</i>
 
                                 </x-button>

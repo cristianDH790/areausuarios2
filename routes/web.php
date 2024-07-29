@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Livewire\DashboardCustomer\Home\Index;
 
 use App\Http\Controllers\DashboardAdmin\BankController;
+use App\Http\Controllers\DashboardAdmin\BoletaController;
 use App\Http\Controllers\DashboardAdmin\FirmController;
 
 
@@ -67,6 +68,9 @@ Route::get('/', function () {
 // Route::get('/dashboard-admin', [DashboardAdminController::class, 'index'])->name('dashboard-admin.index');
 // Route::get('/dashboard-user', [DashboardUserController::class, 'index'])->name('user_area.index')->name('dashboard-user.index');
 
+
+
+route::get('sale/{code}/boleta/{sale}', [BoletaController::class, 'GenerarBoletaMasivo'])->name('generate.boleta.masivo');
 route::get('certificado/{service}/generar/{code}', [CertificateController::class, 'GenerarCertificadoMasivo'])->name('generate.certificate.masivo');
 route::get('certificado/{service}/generar-blanco/{code}', [CertificateController::class, 'GenerarCertificadoMasivoBlanco'])->name('generate.certificate.masivo.blanco');
 Route::get('certificate/{id}/generate', [CertificateController::class, 'GenerarCertificado'])->name('generate.certificate');
